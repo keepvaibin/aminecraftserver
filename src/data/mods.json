@@ -1,0 +1,239 @@
+[
+  {
+    "id": "sodium",
+    "name": "Sodium",
+    "category": "optimizers",
+    "tag": "Client FPS",
+    "description": "Rewrites the rendering engine for a huge FPS boost, usually doubling or tripling frames in modded.",
+    "vibe": "Perfect if you love big builds but hate slideshow mode."
+  },
+  {
+    "id": "lithium",
+    "name": "Lithium",
+    "category": "optimizers",
+    "tag": "Logic speed",
+    "description": "Speeds up game logic like AI, physics, and block updates for smoother multiplayer.",
+    "vibe": "Keeps mob farms and busy spawns from turning into PowerPoint."
+  },
+  {
+    "id": "ferrite-core",
+    "name": "FerriteCore",
+    "category": "optimizers",
+    "tag": "Memory",
+    "description": "Cuts down memory usage from blocks and models, ideal for large modpacks.",
+    "vibe": "More room for mods, less crying in Task Manager."
+  },
+  {
+    "id": "krypton",
+    "name": "Krypton",
+    "category": "optimizers",
+    "tag": "Networking",
+    "description": "Optimizes networking for lower ping and faster chunk loading on servers.",
+    "vibe": "Helps your connection keep up with your zoomies."
+  },
+  {
+    "id": "glitchcore",
+    "name": "GlitchCore",
+    "category": "optimizers",
+    "tag": "Fabric helper",
+    "description": "General optimization and stability tweaks for Fabric-based modpacks.",
+    "vibe": "Makes the whole stack a little less cursed."
+  },
+  {
+    "id": "athena",
+    "name": "Athena",
+    "category": "optimizers",
+    "tag": "Models",
+    "description": "Improves performance for detailed block models from decorative mods.",
+    "vibe": "Let your builds be extra without tanking FPS."
+  },
+
+  {
+    "id": "moonlight",
+    "name": "Moonlight Lib",
+    "category": "dependencies",
+    "tag": "Worldgen",
+    "description": "Library mod that powers several worldgen and structure mods.",
+    "vibe": "You don’t see it, but your landscapes do."
+  },
+  {
+    "id": "balm",
+    "name": "Balm",
+    "category": "dependencies",
+    "tag": "Shared library",
+    "description": "Shared code used by multiple QoL mods like Traveler’s Backpack.",
+    "vibe": "The glue holding some of your favorite toys together."
+  },
+  {
+    "id": "terrablender",
+    "name": "TerraBlender",
+    "category": "dependencies",
+    "tag": "Biomes",
+    "description": "Lets biome mods like Biomes O’ Plenty plug into world generation cleanly.",
+    "vibe": "The reason your world is more than just plains, plains, and more plains."
+  },
+
+  {
+    "id": "travelers-backpack",
+    "name": "Traveler’s Backpack",
+    "category": "casual",
+    "tag": "Adventure",
+    "description": "Wearable backpacks with their own inventory UI and upgrades.",
+    "vibe": "Never choose between building blocks and snacks again."
+  },
+  {
+    "id": "carry-on",
+    "name": "Carry On",
+    "category": "casual",
+    "tag": "Utility",
+    "description": "Pick up chests, furnaces, and mobs with your bare hands.",
+    "vibe": "Rearrange your base like it’s interior design simulator."
+  },
+  {
+    "id": "appleskin",
+    "name": "AppleSkin",
+    "category": "casual",
+    "tag": "HUD",
+    "description": "Shows food values and saturation directly on your HUD.",
+    "vibe": "Finally understand what that suspicious stew is really doing."
+  },
+  {
+    "id": "journeymap",
+    "name": "JourneyMap",
+    "category": "casual",
+    "tag": "Map",
+    "description": "Fullscreen map, minimap, waypoints, and death markers.",
+    "vibe": "IRL GPS but for getting lost in modded terrain."
+  },
+  {
+    "id": "waystones",
+    "name": "Waystones",
+    "category": "casual",
+    "tag": "Teleport",
+    "description": "Place or discover stones you can warp between instantly.",
+    "vibe": "Fast travel for people with 40 unfinished bases."
+  },
+  {
+    "id": "decorative-blocks-reborn",
+    "name": "Decorative Blocks Reborn",
+    "category": "casual",
+    "tag": "Building",
+    "description": "Adds beams, seats, pillars, supports, and more decorative blocks.",
+    "vibe": "Make every cottage-core fantasy real."
+  },
+  {
+    "id": "macaws-furniture",
+    "name": "Macaw’s Furniture",
+    "category": "casual",
+    "tag": "Furniture",
+    "description": "Tables, chairs, wardrobes, desks, and a ton of decor pieces.",
+    "vibe": "Your base stops looking like a cave and starts looking like a home."
+  },
+  {
+    "id": "chipped",
+    "name": "Chipped",
+    "category": "casual",
+    "tag": "Blocks+",
+    "description": "Thousands of new block variants using a custom crafting station.",
+    "vibe": "If you’ve ever said “I wish this block had 50 more versions,” this is for you."
+  },
+  {
+    "id": "critters-companions",
+    "name": "Critters & Companions",
+    "category": "casual",
+    "tag": "Mobs",
+    "description": "Cute animals like otters, koi, dragonflies, snails, and more.",
+    "vibe": "Maximum cozy vibes, minimum jump scares."
+  },
+
+  {
+    "id": "bomd",
+    "name": "Bosses of Mass Destruction",
+    "category": "challenge",
+    "tag": "Boss fights",
+    "description": "Adds unique boss fights like the Nether Gauntlet, Void Blossom, and more.",
+    "vibe": "For when the Wither just isn’t scary anymore."
+  },
+  {
+    "id": "deeper-darker",
+    "name": "Deeper and Darker",
+    "category": "challenge",
+    "tag": "Dimension",
+    "description": "Adds The Otherside, a sculk-themed dimension tied to the Warden.",
+    "vibe": "You chose horror mode voluntarily. Brave."
+  },
+
+  {
+    "id": "biomes-o-plenty",
+    "name": "Biomes O’ Plenty",
+    "category": "terrain",
+    "tag": "Biomes",
+    "description": "60+ new biomes with unique foliage, blocks, and vibes.",
+    "vibe": "Touch grass, but like, modded grass."
+  },
+  {
+    "id": "hopo-mineshafts",
+    "name": "Hopo Better Mineshafts",
+    "category": "terrain",
+    "tag": "Structures",
+    "description": "Turns mineshafts into sprawling mining networks worth exploring.",
+    "vibe": "Finally, mines that feel like someone actually worked there."
+  },
+  {
+    "id": "hopo-underwater-ruins",
+    "name": "Hopo Better Underwater Ruins",
+    "category": "terrain",
+    "tag": "Ocean",
+    "description": "Upgrades ocean ruins with bigger layouts and better loot.",
+    "vibe": "Less empty ocean, more “oh no what’s that.”"
+  },
+  {
+    "id": "yungs-strongholds",
+    "name": "YUNG’s Better Strongholds",
+    "category": "terrain",
+    "tag": "Dungeons",
+    "description": "Strongholds become full-on dungeons with loops and secrets.",
+    "vibe": "The End portal room is now an actual journey."
+  },
+  {
+    "id": "yungs-nether-fortresses",
+    "name": "YUNG’s Better Nether Fortresses",
+    "category": "terrain",
+    "tag": "Nether",
+    "description": "Makes Nether fortresses huge, complex, and loot-filled.",
+    "vibe": "Speedrunners fear it, explorers love it."
+  },
+  {
+    "id": "structory",
+    "name": "Structory",
+    "category": "terrain",
+    "tag": "World spice",
+    "description": "Sprinkles small and mid-sized structures throughout the overworld.",
+    "vibe": "Little surprises around every hill."
+  },
+
+  {
+    "id": "simple-voice-chat",
+    "name": "Simple Voice Chat",
+    "category": "misc",
+    "tag": "Voice",
+    "description": "Proximity and group voice chat directly in Minecraft.",
+    "vibe": "Hear your friends scream in real time."
+  },
+  {
+    "id": "gravestones",
+    "name": "Gravestones",
+    "category": "misc",
+    "tag": "Safety",
+    "description": "Keeps your items safe in a grave when you die.",
+    "vibe": "Less rage quitting when you fall in lava (again)."
+  },
+  {
+    "id": "jei",
+    "name": "Just Enough Items (JEI)",
+    "category": "misc",
+    "tag": "Recipes",
+    "description": "Search recipes and item uses right from your inventory.",
+    "vibe": "No more alt-tabbing to figure out that one weird recipe."
+  }
+]

@@ -1,3 +1,4 @@
+/*globals.css*/
 @import "tailwindcss";
 
 :root {
@@ -10,6 +11,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-minecraft: var(--font-minecraft);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +24,12 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-minecraft);
+}
+
+/* Blob card shape */
+.blob-card {
+  clip-path: path(
+    "M16 80C16 35 40 16 96 16h320c56 0 80 19 80 64v176c0 45-24 64-80 64H96c-56 0-80-19-80-64Z"
+  );
 }
