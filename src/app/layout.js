@@ -14,15 +14,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const minecraftFont = localFont({
+const minecraftFontRegular = localFont({
   src: [
     {
-      path: "../fonts/MinecraftBold-nMK1.otf",
+      path: "../fonts/MinecraftRegular-Bmg3.otf",
       weight: "400",
       style: "normal",
     },
   ],
-  variable: "--font-minecraft",
+  variable: "--font-minecraft-regular",
+});
+
+const minecraftFontBold = localFont({
+  src: [
+    {
+      path: "../fonts/MinecraftBold-nMK1.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-minecraft-bold",
 });
 
 
@@ -38,7 +49,8 @@ export default function RootLayout({ children }) {
         className={`
           ${geistSans.variable} 
           ${geistMono.variable} 
-          ${minecraftFont.variable}
+          ${minecraftFontRegular.variable}
+          ${minecraftFontBold.variable}
           antialiased
         `}
       >

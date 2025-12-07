@@ -5,7 +5,13 @@
     "category": "optimizers",
     "tag": "Client FPS",
     "description": "Rewrites the rendering engine for a huge FPS boost, usually doubling or tripling frames in modded.",
-    "vibe": "Perfect if you love big builds but hate slideshow mode."
+    "vibe": "Perfect if you love big builds but hate slideshow mode.",
+    "details": [
+      "Client-side only, but highly recommended for everyone.",
+      "Pairs well with Lithium, FerriteCore, and other optimization mods.",
+      "Supports most shader packs and resource packs."
+    ],
+    "media": ["/mods/sodium-1.png", "/mods/sodium-2.gif"]
   },
   {
     "id": "lithium",
@@ -13,7 +19,9 @@
     "category": "optimizers",
     "tag": "Logic speed",
     "description": "Speeds up game logic like AI, physics, and block updates for smoother multiplayer.",
-    "vibe": "Keeps mob farms and busy spawns from turning into PowerPoint."
+    "vibe": "Keeps mob farms and busy spawns from turning into PowerPoint.",
+    "details": "Server and client both benefit. Great for large farms and mob-heavy builds.",
+    "media": ["/mods/lithium-1.png"]
   },
   {
     "id": "ferrite-core",

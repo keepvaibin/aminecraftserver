@@ -1,3 +1,4 @@
+//page.js
 "use client";
 
 import Image from "next/image";
@@ -36,7 +37,8 @@ export default function Home() {
     <main
       className="
         min-h-screen
-        bg-gradient-to-b from-[#E1F8FF] via-[#385282] to-[#1C1D60]
+        font-minecraft-bold
+        bg-gradient-to-b from-[#C7FFB8] via-[#385282] to-[#70350D]
         flex flex-col items-center
         pb-24
       "
@@ -65,7 +67,7 @@ export default function Home() {
           />
         </motion.div>
 
-        {/* Centered MODDED image, closer to the title */}
+        {/* MODDED image */}
         <motion.div
           variants={fadeUp}
           whileHover={{ y: -3, rotate: 1 }}
@@ -74,7 +76,7 @@ export default function Home() {
           <Image
             src={titleModded}
             alt="Modded"
-            width={280}
+            width={150}
             className="max-w-full drop-shadow-[0_4px_0_rgba(0,0,0,1)]"
           />
         </motion.div>
@@ -91,13 +93,13 @@ export default function Home() {
 
       {/* ------------- MAP + IP + DISCORD GRID ------------- */}
       <motion.section
-        className="w-full max-w-6xl px-6 mb-20"
+        className="w-full max-w-[90vw] px-4 mb-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="grid gap-6 lg:gap-8 lg:grid-cols-2 items-stretch">
-          {/* Left: Map card (half the screen) */}
+        <div className="grid gap-6 lg:gap-8 lg:grid-cols-[70%_1fr] items-stretch">
+          {/* Left: Map card */}
           <div className="bg-[rgba(15,23,42,0.9)]/90 border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.7)] overflow-hidden backdrop-blur-sm flex flex-col">
             <div className="flex items-center justify-between px-6 pt-4 pb-2">
               <div>
@@ -132,58 +134,63 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right: IP info + Discord button (stacked, always there) */}
+          {/* Right: IP info + Discord button (stacked) */}
           <div className="flex flex-col gap-6">
-            {/* Server info card */}
+            {/* Server info card (now has shine) */}
             <motion.div
               variants={fadeIn}
               initial="hidden"
               animate="show"
-              className="group relative overflow-hidden bg-gradient-to-br from-[#ffb7d5] via-[#f9a8d4] to-[#60a5fa] border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.8)] px-6 py-6 md:px-8 md:py-8 text-[#111827] cursor-pointer"
+              className="group relative overflow-hidden bg-gradient-to-br from-[#ffb7d5] via-[#f9a8d4] to-[#60a5fa] border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.8)] px-6 py-6 md:px-8 md:py-8 text-[#111827]"
             >
-              <h3 className="text-xl font-bold mb-2 text-[#ffb7d5] flex items-center gap-2">
-                <span>Server Info</span>
-                <span className="text-lg">🐔</span>
-              </h3>
-              <p className="text-sm text-[#E0E7FF]/80 mb-4">
-                Semi-cozy, semi-chaotic survival. Bring your friends, build a
-                base, or just log in to pet every animal you see.
-              </p>
+              {/* shine overlay */}
+              <div className="pointer-events-none absolute -left-20 top-0 h-full w-32 translate-x-0 rotate-12 bg-gradient-to-b from-white/60 via-white/20 to-transparent opacity-0 group-hover:translate-x-[140%] group-hover:opacity-100 transition-all duration-700" />
 
-              <div className="space-y-3 text-xs md:text-sm">
-                <div className="rounded-2xl bg-[#020617]/60 border border-white/20 px-4 py-3">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-[#A5B4FC] mb-1">
-                    IP Address
-                  </p>
-                  <p className="font-mono text-sm md:text-base bg-black/40 inline-block px-2 py-1 rounded-lg border border-black">
-                    chickenjockey.lol
-                  </p>
-                  <p className="mt-1 text-[11px] text-[#E0E7FF]/70">
-                    Java Edition · Fabric · 1.21.1 modded
-                  </p>
+              <div className="relative">
+                <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                  <span>Server Info</span>
+                  <span className="text-lg">🐔</span>
+                </h3>
+                <p className="text-sm mb-4">
+                  Semi-cozy, semi-chaotic survival. Bring your friends, build a
+                  base, or just log in to pet every animal you see.
+                </p>
+
+                <div className="space-y-3 text-xs md:text-sm">
+                  <div className="rounded-2xl bg-[#020617]/60 border border-white/20 px-4 py-3">
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-[#A5B4FC] mb-1">
+                      IP Address
+                    </p>
+                    <p className="font-mono text-sm md:text-base bg-black/40 inline-block px-2 py-1 rounded-lg border border-black">
+                      chickenjockey.lol
+                    </p>
+                    <p className="mt-1 text-[11px] text-[#E0E7FF]/70">
+                      Java Edition · Fabric · 1.21.1 modded
+                    </p>
+                  </div>
+
+                  <ul className="list-disc list-inside space-y-1.5">
+                    <li>
+                      Play casually or go full sweat with optional bosses.
+                    </li>
+                    <li>
+                      Builders, redstone nerds, and chaos gremlins welcome.
+                    </li>
+                    <li>
+                      Live map, waystones, and plenty of cute mods to keep
+                      things cozy.
+                    </li>
+                  </ul>
                 </div>
-
-                <ul className="list-disc list-inside text-[#E0E7FF]/85 space-y-1.5">
-                  <li>Play casually or go full sweat with optional bosses.</li>
-                  <li>Builders, redstone nerds, and chaos gremlins welcome.</li>
-                  <li>
-                    Live map, waystones, and plenty of cute mods to keep things
-                    cozy.
-                  </li>
-                </ul>
               </div>
             </motion.div>
 
-            {/* Discord CTA card */}
-            <motion.a
+            {/* Discord CTA card – only button is clickable */}
+            <motion.div
               variants={fadeIn}
               initial="hidden"
               animate="show"
-              href="https://discord.gg/your-invite-code-here"
-              target="_blank"
-              rel="noreferrer"
-              className="group relative overflow-hidden bg-gradient-to-br from-[#ffb7d5] via-[#f9a8d4] to-[#60a5fa] border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.8)] px-6 py-6 md:px-8 md:py-8 text-[#111827] cursor-pointer"
-              whileHover={{ y: -4 }}
+              className="group relative overflow-hidden bg-gradient-to-br from-[#ffb7d5] via-[#f9a8d4] to-[#60a5fa] border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.8)] px-6 py-6 md:px-8 md:py-8 text-[#111827]"
               transition={{ type: "spring", stiffness: 220, damping: 18 }}
             >
               {/* animated shine */}
@@ -194,7 +201,7 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-[0.25em] mb-2">
                     Join the flock
                   </p>
-                  <h3 className="text-2xl md:text-3xl font-extrabold drop-shadow-[0_3px_0_rgba(0,0,0,0.5)]">
+                  <h3 className="text-2xl md:text-3xl font-extrabold">
                     Hop into the ChickenJockey Discord
                   </h3>
                   <p className="mt-2 text-sm md:text-base text-black/80">
@@ -202,15 +209,19 @@ export default function Home() {
                     scream in voice chat when a creeper shows up behind you.
                   </p>
 
-                  <button
-                    type="button"
-                    className="mt-4 inline-flex items-center gap-2 rounded-full border-2 border-black bg-[#111827] px-4 py-2 text-sm font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] group-hover:translate-y-[-2px] transition-transform"
+                  {/* clickable button */}
+                  <a
+                    href="https://discord.gg/your-invite-code-here"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 rounded-full border-2 border-black bg-[#111827] px-4 py-2 text-sm font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform"
                   >
                     <span>Join Discord</span>
-                    <span className="text-lg group-hover:animate-bounce">
+                    {/* CHANGED: Removed 'group-hover:' prefix so it always bounces */}
+                    <span className="text-lg animate-bounce mt-1.5">
                       💬
                     </span>
-                  </button>
+                  </a>
                 </div>
 
                 <div className="relative hidden md:block">
@@ -218,18 +229,18 @@ export default function Home() {
                     src={arrow}
                     alt="Arrow"
                     width={120}
-                    className="rotate-[20deg] translate-y-2 drop-shadow-[0_4px_0_rgba(0,0,0,0.6)]"
+                    className="rotate-[100] translate-y-30 drop-shadow-[0_4px_0_rgba(0,0,0,0.6)]"
                   />
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           </div>
         </div>
       </motion.section>
 
       {/* ------------- ABOUT / ANIMALS SECTION ------------- */}
       <motion.section
-        className="w-full max-w-6xl px-6 mb-20"
+        className="w-full max-w-[1280px] px-4 mb-20"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
@@ -262,8 +273,8 @@ export default function Home() {
                 this?” content.
               </li>
               <li>
-                <span className="font-semibold">Social path:</span> Simple
-                Voice Chat, community events, and shared build projects.
+                <span className="font-semibold">Social path:</span> Simple Voice
+                Chat, community events, and shared build projects.
               </li>
             </ul>
           </motion.div>
@@ -290,7 +301,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* “That could be you!” under the images, centered */}
+        {/* “That could be you!” */}
         <div className="flex flex-col items-center mt-40">
           <Image
             src={arrow}
