@@ -21,7 +21,7 @@ export default function ModCard({ mod, onSelect }) {
       {/* little pixel corner accent */}
       <div className="absolute -left-2 -top-2 h-10 w-10 bg-[#ffb7d5] border-2 border-black rounded-br-3xl shadow-[0_4px_0_rgba(0,0,0,0.6)]" />
 
-      <div className="relative">
+      <div className="relative pt-3 pl-2">
         <div className="flex items-center justify-between gap-2 mb-1">
           <h4 className="text-sm md:text-base font-bold tracking-tight text-[#FDF2FF]">
             {mod.name}

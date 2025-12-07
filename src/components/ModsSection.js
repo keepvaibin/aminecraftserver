@@ -167,18 +167,6 @@ export default function ModsSection() {
                 {currentCategory.blurb}
               </p>
             </div>
-            <div className="rounded-2xl border-2 border-dashed border-[#fecdd3]/70 bg-[#f9a8d4]/20 px-4 py-3 text-xs md:text-sm max-w-xs">
-              <p className="font-semibold text-[#fef9c3]">
-                Powered by JSON ✨
-              </p>
-              <p className="text-[#FFE4E6]/90 mt-1">
-                Add new mods in{" "}
-                <span className="font-mono bg-black/30 px-1.5 py-0.5 rounded">
-                  src/data/mods.json
-                </span>{" "}
-                and they’ll automatically show up under the right category.
-              </p>
-            </div>
           </div>
 
           {/* Card grid */}

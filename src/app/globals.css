@@ -1,4 +1,4 @@
-/*globals.css*/
+/* globals.css */
 @import "tailwindcss";
 
 :root {
@@ -29,9 +29,132 @@ body {
   font-family: var(--font-geist-sans);
 }
 
-/* Blob card shape */
+/* Base texture class */
+.mc-texture {
+  image-rendering: pixelated;
+  width: 100%;
+  background-repeat: repeat;
+}
+
+/* 1. SKY */
+.bg-sky {
+  background: linear-gradient(to bottom, #60a5fa, #1d2645);
+}
+
+/* 2. SURFACE: Grass + Dirt */
+.bg-grass-edge {
+  background-image: url('/textures/grass_side.png');
+  background-repeat: repeat-x;
+  background-size: auto 64px;
+}
+
+.bg-dirt {
+  background-image: url('/textures/dirt.png');
+  background-repeat: repeat;
+  background-size: 64px 64px;
+}
+
+/* 2.5 SURFACE VARIANTS: Andesite, Diorite, Granite, Stone for more life */
+.bg-stone-layer {
+  background-image:
+    url('/textures/emerald.png'),
+    url('/textures/diamond.png'),
+    url('/textures/lapis.png'),
+    url('/textures/gold.png'),
+    url('/textures/redstone.png'),
+    url('/textures/coal.png'),
+    url('/textures/iron.png'),
+    url('/textures/andesite.png'),
+    url('/textures/diorite.png'),
+    url('/textures/granite.png'),
+    url('/textures/stone.png');
+
+  background-repeat: repeat;
+
+  background-size:
+    520px 520px,  /* Emerald - very rare */
+    480px 480px,  /* Diamond - rare */
+    420px 420px,  /* Lapis - uncommon */
+    380px 380px,  /* Gold - uncommon */
+    320px 320px,  /* Redstone - fairly common */
+    260px 260px,  /* Coal - common */
+    300px 300px,  /* Iron - common */
+    180px 180px,  /* Andesite - stone var */
+    180px 180px,  /* Diorite - stone var */
+    180px 180px,  /* Granite - stone var */
+    64px 64px;    /* Stone base */
+
+  background-position:
+    10% 10%,
+    70% 15%,
+    85% 40%,
+    25% 60%,
+    60% 75%,
+    5% 50%,
+    40% 30%,
+    0 0,
+    15% 65%,
+    75% 55%,
+    0 0;
+}
+
+/* 3. DEEPSLATE LAYER */
+.bg-deepslate-layer {
+  background-image:
+    url('/textures/emerald_deep.png'),
+    url('/textures/diamond_deep.png'),
+    url('/textures/lapis_deep.png'),
+    url('/textures/gold_deep.png'),
+    url('/textures/redstone_deep.png'),
+    url('/textures/coal_deep.png'),
+    url('/textures/iron_deep.png'),
+    url('/textures/deepslate.png');
+
+  background-repeat: repeat;
+
+  background-size:
+    600px 600px,  /* Emerald deep - super rare */
+    520px 520px,  /* Diamond deep - rare */
+    460px 460px,  /* Lapis deep - uncommon */
+    420px 420px,  /* Gold deep */
+    360px 360px,  /* Redstone deep */
+    300px 300px,  /* Coal deep */
+    340px 340px,  /* Iron deep */
+    64px 64px;    /* Deepslate base */
+
+  background-position:
+    20% 10%,
+    65% 18%,
+    82% 35%,
+    20% 55%,
+    60% 75%,
+    10% 45%,
+    45% 50%,
+    0 0;
+
+  box-shadow: inset 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* 4. BEDROCK */
+.bg-bedrock {
+  background-image: url('/textures/bedrock.png');
+  background-repeat: repeat;
+  background-size: 64px 64px;
+}
+
+/* Helper for the Blob Card Shape */
 .blob-card {
   clip-path: path(
     "M16 80C16 35 40 16 96 16h320c56 0 80 19 80 64v176c0 45-24 64-80 64H96c-56 0-80-19-80-64Z"
   );
 }
+
+/* Cross-section background (parallax image) */
+.cross-section-bg {
+  background-image: url("/textures/crosssection.png");
+  background-repeat: no-repeat;
+  background-position: top left;  /* mostly crop on the right */
+  background-size: cover;         /* <-- fill screen, no empty edges */
+  image-rendering: pixelated;
+}
+

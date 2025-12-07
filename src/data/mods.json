@@ -4,13 +4,15 @@
     "name": "Sodium",
     "category": "optimizers",
     "tag": "Client FPS",
-    "description": "Rewrites the rendering engine for a huge FPS boost, usually doubling or tripling frames in modded.",
-    "vibe": "Perfect if you love big builds but hate slideshow mode.",
-    "details": [
-      "Client-side only, but highly recommended for everyone.",
-      "Pairs well with Lithium, FerriteCore, and other optimization mods.",
-      "Supports most shader packs and resource packs."
+    "description": "Massive performance booster that rewrites Minecraft’s rendering; usually doubles or triples FPS.",
+    "features": [
+      "Better and faster chunk rendering",
+      "Stabilizes FPS in heavy areas",
+      "Smooth lighting improvements",
+      "Works with shaders through Iris"
     ],
+    "howTo": "Just install it and configure options under Options → Video Settings.",
+    "link": "https://modrinth.com/mod/sodium",
     "media": ["/mods/sodium-1.png", "/mods/sodium-2.gif"]
   },
   {
@@ -18,9 +20,14 @@
     "name": "Lithium",
     "category": "optimizers",
     "tag": "Logic speed",
-    "description": "Speeds up game logic like AI, physics, and block updates for smoother multiplayer.",
-    "vibe": "Keeps mob farms and busy spawns from turning into PowerPoint.",
-    "details": "Server and client both benefit. Great for large farms and mob-heavy builds.",
+    "description": "Speeds up Minecraft’s game logic like AI, physics, and block ticks.",
+    "features": [
+      "Mob-heavy areas run more smoothly",
+      "Reduces random lag spikes",
+      "Works on both servers and clients"
+    ],
+    "howTo": "Runs automatically once installed; no extra setup needed.",
+    "link": "https://modrinth.com/mod/lithium",
     "media": ["/mods/lithium-1.png"]
   },
   {
@@ -28,32 +35,58 @@
     "name": "FerriteCore",
     "category": "optimizers",
     "tag": "Memory",
-    "description": "Cuts down memory usage from blocks and models, ideal for large modpacks.",
-    "vibe": "More room for mods, less crying in Task Manager."
+    "description": "Cuts memory usage by optimizing block and model data.",
+    "features": [
+      "Lowers overall RAM usage",
+      "Helps big modpacks run more comfortably",
+      "Useful on lower-memory machines and servers"
+    ],
+    "howTo": "Install on client and/or server; no configuration required.",
+    "link": "https://modrinth.com/mod/ferrite-core",
+    "media": ["/mods/ferrite-core-1.png"]
   },
   {
     "id": "krypton",
     "name": "Krypton",
     "category": "optimizers",
     "tag": "Networking",
-    "description": "Optimizes networking for lower ping and faster chunk loading on servers.",
-    "vibe": "Helps your connection keep up with your zoomies."
+    "description": "Optimizes networking for smoother online play.",
+    "features": [
+      "Reduces packet overhead",
+      "Faster chunk loading over the network",
+      "Can help lower effective ping on servers"
+    ],
+    "howTo": "Install on the server for best effect; clients can also use it.",
+    "link": "https://modrinth.com/mod/krypton",
+    "media": ["/mods/krypton-1.png"]
   },
   {
     "id": "glitchcore",
     "name": "GlitchCore",
     "category": "optimizers",
     "tag": "Fabric helper",
-    "description": "General optimization and stability tweaks for Fabric-based modpacks.",
-    "vibe": "Makes the whole stack a little less cursed."
+    "description": "General optimization and stability tweaks for Fabric mods.",
+    "features": [
+      "Improves stability for large Fabric modpacks",
+      "Includes various performance patches behind the scenes"
+    ],
+    "howTo": "Drop it into your mods folder; it quietly helps everything behave.",
+    "link": "https://modrinth.com/mod/glitchcore",
+    "media": ["/mods/glitchcore-1.png"]
   },
   {
     "id": "athena",
     "name": "Athena",
     "category": "optimizers",
     "tag": "Models",
-    "description": "Improves performance for detailed block models from decorative mods.",
-    "vibe": "Let your builds be extra without tanking FPS."
+    "description": "Boosts performance for detailed decorative block models.",
+    "features": [
+      "Optimizes complex block models from decor/structure mods",
+      "Helps builds stay pretty without tanking FPS"
+    ],
+    "howTo": "Install alongside decorative/structure mods; no config needed.",
+    "link": "https://modrinth.com/mod/athena",
+    "media": ["/mods/athena-1.png"]
   },
 
   {
@@ -61,24 +94,42 @@
     "name": "Moonlight Lib",
     "category": "dependencies",
     "tag": "Worldgen",
-    "description": "Library mod that powers several worldgen and structure mods.",
-    "vibe": "You don’t see it, but your landscapes do."
+    "description": "Library mod required by several worldgen and structure mods.",
+    "features": [
+      "Powers multiple structure and worldgen mods",
+      "Keeps worldgen features consistent and compatible"
+    ],
+    "howTo": "Install whenever another mod lists Moonlight Lib as a dependency.",
+    "link": "https://modrinth.com/mod/moonlight",
+    "media": ["/mods/moonlight-1.png"]
   },
   {
     "id": "balm",
     "name": "Balm",
     "category": "dependencies",
     "tag": "Shared library",
-    "description": "Shared code used by multiple QoL mods like Traveler’s Backpack.",
-    "vibe": "The glue holding some of your favorite toys together."
+    "description": "Shared code library used by several QoL mods.",
+    "features": [
+      "Provides a common API for many mods",
+      "Required for mods such as Traveler’s Backpack"
+    ],
+    "howTo": "Install if any of your mods require Balm; no extra setup.",
+    "link": "https://modrinth.com/mod/balm",
+    "media": ["/mods/balm-1.png"]
   },
   {
     "id": "terrablender",
     "name": "TerraBlender",
     "category": "dependencies",
     "tag": "Biomes",
-    "description": "Lets biome mods like Biomes O’ Plenty plug into world generation cleanly.",
-    "vibe": "The reason your world is more than just plains, plains, and more plains."
+    "description": "Lets biome mods hook cleanly into world generation.",
+    "features": [
+      "Allows multiple biome mods to coexist",
+      "Used by mods like Biomes O’ Plenty"
+    ],
+    "howTo": "Install alongside biome/worldgen mods that ask for it.",
+    "link": "https://modrinth.com/mod/terrablender",
+    "media": ["/mods/terrablender-1.png"]
   },
 
   {
@@ -86,72 +137,147 @@
     "name": "Traveler’s Backpack",
     "category": "casual",
     "tag": "Adventure",
-    "description": "Wearable backpacks with their own inventory UI and upgrades.",
-    "vibe": "Never choose between building blocks and snacks again."
+    "description": "Adds functional backpacks with tiers, abilities, and a full GUI.",
+    "features": [
+      "Portable inventory with lots of slots",
+      "Upgradeable backpacks with special abilities",
+      "Can be worn or placed as a block"
+    ],
+    "howTo": [
+      "Hold the backpack and Right-Click to open it.",
+      "Press B to open while equipped (keybind configurable).",
+      "Use the Equip button in the GUI to wear it.",
+      "Upgrade backpacks via the Smithing Table."
+    ],
+    "link": "https://www.curseforge.com/minecraft/mc-mods/travelers-backpack",
+    "media": ["/mods/travelers-backpack-1.png", "/mods/travelers-backpack-2.png"]
   },
   {
     "id": "carry-on",
     "name": "Carry On",
     "category": "casual",
     "tag": "Utility",
-    "description": "Pick up chests, furnaces, and mobs with your bare hands.",
-    "vibe": "Rearrange your base like it’s interior design simulator."
+    "description": "Lets you pick up blocks, containers, and mobs with your bare hands.",
+    "features": [
+      "Move chests, furnaces, and machines without breaking them",
+      "Carry mobs for relocation or silly screenshots"
+    ],
+    "howTo": [
+      "Shift + Right-Click with empty hands to pick up a block or mob.",
+      "Right-Click to place what you’re carrying."
+    ],
+    "link": "https://modrinth.com/mod/carry-on",
+    "media": ["/mods/carry-on-1.png"]
   },
   {
     "id": "appleskin",
     "name": "AppleSkin",
     "category": "casual",
     "tag": "HUD",
-    "description": "Shows food values and saturation directly on your HUD.",
-    "vibe": "Finally understand what that suspicious stew is really doing."
+    "description": "Adds hunger and saturation overlays directly to your HUD.",
+    "features": [
+      "Shows how much a food item will restore",
+      "Displays saturation values",
+      "Shows when you will start healing",
+      "Displays exhaustion gain"
+    ],
+    "howTo": "Install it and enjoy the extra HUD info; configurable in mod options.",
+    "link": "https://modrinth.com/mod/appleskin",
+    "media": ["/mods/appleskin-1.png"]
   },
   {
     "id": "journeymap",
     "name": "JourneyMap",
     "category": "casual",
     "tag": "Map",
-    "description": "Fullscreen map, minimap, waypoints, and death markers.",
-    "vibe": "IRL GPS but for getting lost in modded terrain."
+    "description": "Adds a minimap, fullscreen map, waypoints, and death markers.",
+    "features": [
+      "Automatic map generation as you explore",
+      "Waypoints and death markers so you don’t get lost",
+      "Configurable minimap and fullscreen map"
+    ],
+    "howTo": [
+      "Press J for the fullscreen map.",
+      "Press O for minimap options.",
+      "Press B to create a waypoint."
+    ],
+    "link": "https://modrinth.com/mod/journeymap",
+    "media": ["/mods/journeymap-1.png"]
   },
   {
     "id": "waystones",
     "name": "Waystones",
     "category": "casual",
     "tag": "Teleport",
-    "description": "Place or discover stones you can warp between instantly.",
-    "vibe": "Fast travel for people with 40 unfinished bases."
+    "description": "Adds teleportation stones you can find or craft.",
+    "features": [
+      "Teleport between activated waystones",
+      "Craftable and naturally generated stones",
+      "Warp scrolls and items for flexible travel"
+    ],
+    "howTo": [
+      "Right-Click a waystone to activate it.",
+      "Use an activated waystone to teleport to others.",
+      "Craft warp scrolls and other items for remote travel."
+    ],
+    "link": "https://modrinth.com/mod/waystones",
+    "media": ["/mods/waystones-1.png"]
   },
   {
     "id": "decorative-blocks-reborn",
     "name": "Decorative Blocks Reborn",
     "category": "casual",
     "tag": "Building",
-    "description": "Adds beams, seats, pillars, supports, and more decorative blocks.",
-    "vibe": "Make every cottage-core fantasy real."
+    "description": "Adds beams, seats, pillars, supports, and other aesthetic blocks.",
+    "features": [
+      "New decorative beams, seats, pillars, and supports",
+      "Perfect for cozy builds and detailed structures"
+    ],
+    "howTo": "Craft the new blocks and use them like any other building block.",
+    "link": "https://modrinth.com/mod/decorative-blocks-reborn",
+    "media": ["/mods/decorative-blocks-reborn-1.png"]
   },
   {
     "id": "macaws-furniture",
     "name": "Macaw’s Furniture",
     "category": "casual",
     "tag": "Furniture",
-    "description": "Tables, chairs, wardrobes, desks, and a ton of decor pieces.",
-    "vibe": "Your base stops looking like a cave and starts looking like a home."
+    "description": "Adds chairs, tables, wardrobes, desks, and lots of decor pieces.",
+    "features": [
+      "Many different furniture styles and colors",
+      "Great for decorating bases, shops, and houses"
+    ],
+    "howTo": "Craft furniture in the crafting table and place it around your builds.",
+    "link": "https://modrinth.com/mod/macaws-furniture",
+    "media": ["/mods/macaws-furniture-1.png"]
   },
   {
     "id": "chipped",
     "name": "Chipped",
     "category": "casual",
     "tag": "Blocks+",
-    "description": "Thousands of new block variants using a custom crafting station.",
-    "vibe": "If you’ve ever said “I wish this block had 50 more versions,” this is for you."
+    "description": "Adds thousands of block variants for builders.",
+    "features": [
+      "New workstation: Chipping Bench",
+      "Huge catalog of decorative variants for many vanilla blocks"
+    ],
+    "howTo": "Use the Chipping Bench to convert blocks into their fancy variants.",
+    "link": "https://modrinth.com/mod/chipped",
+    "media": ["/mods/chipped-1.png"]
   },
   {
     "id": "critters-companions",
-    "name": "Critters & Companions",
+    "name": "Critters and Companions",
     "category": "casual",
     "tag": "Mobs",
-    "description": "Cute animals like otters, koi, dragonflies, snails, and more.",
-    "vibe": "Maximum cozy vibes, minimum jump scares."
+    "description": "Adds cute animals like otters, seals, dragonflies, snails, and koi fish.",
+    "features": [
+      "Many new passive and ambient creatures",
+      "Great for cozy, lively worlds"
+    ],
+    "howTo": "Explore the world to find new critters in their natural habitats.",
+    "link": "https://modrinth.com/mod/critters-and-companions",
+    "media": ["/mods/critters-companions-1.png"]
   },
 
   {
@@ -159,8 +285,20 @@
     "name": "Bosses of Mass Destruction",
     "category": "challenge",
     "tag": "Boss fights",
-    "description": "Adds unique boss fights like the Nether Gauntlet, Void Blossom, and more.",
-    "vibe": "For when the Wither just isn’t scary anymore."
+    "description": "Adds challenging, unique boss battles to the game.",
+    "features": [
+      "Bosses like the Nether Gauntlet, Void Blossom, Frostmaw, and The Harbinger",
+      "Each boss has its own arena and mechanics",
+      "Drops strong gear and unique rewards"
+    ],
+    "howTo": "Follow the in-game advancements or wiki for how to summon each boss.",
+    "link": "https://modrinth.com/mod/bosses-of-mass-destruction",
+    "media": [
+      "/mods/bomd-1.png",
+      "/mods/bomd-2.png",
+      "/mods/bomd-3.png",
+      "/mods/bomd-4.png"
+    ]
   },
   {
     "id": "deeper-darker",
@@ -168,7 +306,19 @@
     "category": "challenge",
     "tag": "Dimension",
     "description": "Adds The Otherside, a sculk-themed dimension tied to the Warden.",
-    "vibe": "You chose horror mode voluntarily. Brave."
+    "features": [
+      "New biomes like Deeplands, Echoing Forest, Overcast Columns, and Blooming Caverns",
+      "Ancient temples and other sculk ruins with dangerous mobs",
+      "New blocks like Gloomslate, Sculk Stone, and a new wood set",
+      "Warden armor and tools plus Soul Elytra with a rocket-free launch ability"
+    ],
+    "howTo": [
+      "Defeat the Warden and obtain its special drop (Heart of the Deep or equivalent).",
+      "Use it on the mod’s portal structure to enter The Otherside (check wiki/guide for exact recipe).",
+      "Press the configured key (default B) while wearing Soul Elytra to launch into flight; ability has a cooldown."
+    ],
+    "link": "https://www.minecraft-guides.com/mod/deeper-and-darker/",
+    "media": ["/mods/deeper-darker-1.png"]
   },
 
   {
@@ -176,48 +326,97 @@
     "name": "Biomes O’ Plenty",
     "category": "terrain",
     "tag": "Biomes",
-    "description": "60+ new biomes with unique foliage, blocks, and vibes.",
-    "vibe": "Touch grass, but like, modded grass."
+    "description": "Adds 60+ new biomes and a full worldgen overhaul.",
+    "features": [
+      "Tons of new overworld biomes with unique blocks and plants",
+      "Great for exploration-focused worlds"
+    ],
+    "howTo": [
+      "Make a new world with the Biomes O’ Plenty world type if needed.",
+      "Press F3 to see biome names and look them up on the wiki."
+    ],
+    "link": "https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty",
+    "media": [
+      "/mods/biomes-o-plenty-1.png",
+      "/mods/biomes-o-plenty-2.png",
+      "/mods/biomes-o-plenty-3.png",
+      "/mods/biomes-o-plenty-4.png"
+    ]
   },
   {
     "id": "hopo-mineshafts",
     "name": "Hopo Better Mineshafts",
     "category": "terrain",
     "tag": "Structures",
-    "description": "Turns mineshafts into sprawling mining networks worth exploring.",
-    "vibe": "Finally, mines that feel like someone actually worked there."
+    "description": "Replaces mineshafts with huge, more realistic mining tunnels.",
+    "features": [
+      "Massive, interconnected mine networks",
+      "More interesting layouts and loot than vanilla mineshafts"
+    ],
+    "howTo": "Explore underground to discover revamped mineshafts in new worlds.",
+    "link": "https://modrinth.com/datapack/hopo-better-mineshaft",
+    "media": [
+      "/mods/hopo-mineshafts-1.png",
+      "/mods/hopo-mineshafts-2.png",
+      "/mods/hopo-mineshafts-3.png",
+      "/mods/hopo-mineshafts-4.png"
+    ]
   },
   {
     "id": "hopo-underwater-ruins",
     "name": "Hopo Better Underwater Ruins",
     "category": "terrain",
     "tag": "Ocean",
-    "description": "Upgrades ocean ruins with bigger layouts and better loot.",
-    "vibe": "Less empty ocean, more “oh no what’s that.”"
+    "description": "Improves ocean ruins with larger layouts and better loot.",
+    "features": [
+      "Bigger, more intricate underwater ruin structures",
+      "Better loot and more reasons to explore the ocean floor"
+    ],
+    "howTo": "Swim or boat around oceans to find the new ruins.",
+    "link": "https://modrinth.com/mod/hopo-better-underwater-ruins",
+    "media": ["/mods/hopo-underwater-ruins-1.png"]
   },
   {
     "id": "yungs-strongholds",
     "name": "YUNG’s Better Strongholds",
     "category": "terrain",
     "tag": "Dungeons",
-    "description": "Strongholds become full-on dungeons with loops and secrets.",
-    "vibe": "The End portal room is now an actual journey."
+    "description": "Massively overhauls strongholds into full dungeons.",
+    "features": [
+      "Huge, multi-path strongholds with loops and secrets",
+      "More interesting End portal journeys"
+    ],
+    "howTo": "Find strongholds as usual with Eyes of Ender; they’ll be upgraded in new worlds.",
+    "link": "https://modrinth.com/mod/yungs-better-strongholds",
+    "media": ["/mods/yungs-strongholds-1.png"]
   },
   {
     "id": "yungs-nether-fortresses",
     "name": "YUNG’s Better Nether Fortresses",
     "category": "terrain",
     "tag": "Nether",
-    "description": "Makes Nether fortresses huge, complex, and loot-filled.",
-    "vibe": "Speedrunners fear it, explorers love it."
+    "description": "Overhauls Nether fortresses with new rooms, layouts, and loot.",
+    "features": [
+      "Larger, more dangerous Nether fortresses",
+      "New rooms, secrets, and loot opportunities"
+    ],
+    "howTo": "Explore the Nether to find the upgraded fortresses.",
+    "link": "https://modrinth.com/mod/yungs-better-nether-fortresses",
+    "media": ["/mods/yungs-nether-fortresses-1.png"]
   },
   {
     "id": "structory",
     "name": "Structory",
     "category": "terrain",
     "tag": "World spice",
-    "description": "Sprinkles small and mid-sized structures throughout the overworld.",
-    "vibe": "Little surprises around every hill."
+    "description": "Adds lots of small and medium structures across the overworld.",
+    "features": [
+      "Dozens of new structures scattered around the world",
+      "Makes exploration feel busier and more lived-in"
+    ],
+    "howTo": "Just explore; new structures appear naturally in new worlds.",
+    "link": "https://modrinth.com/mod/structory",
+    "media": ["/mods/structory-1.png"]
   },
 
   {
@@ -225,23 +424,52 @@
     "name": "Simple Voice Chat",
     "category": "misc",
     "tag": "Voice",
-    "description": "Proximity and group voice chat directly in Minecraft.",
-    "vibe": "Hear your friends scream in real time."
+    "description": "Adds proximity and group voice chat directly in Minecraft.",
+    "features": [
+      "Proximity chat around nearby players",
+      "Group and party channels",
+      "Configurable microphone and audio options"
+    ],
+    "howTo": [
+      "Press V to open the voice chat menu (default keybind).",
+      "Configure push-to-talk and mute options in the menu."
+    ],
+    "link": "https://modrinth.com/mod/simple-voice-chat",
+    "media": ["/mods/simple-voice-chat-1.png"]
   },
   {
     "id": "gravestones",
     "name": "Gravestones",
     "category": "misc",
     "tag": "Safety",
-    "description": "Keeps your items safe in a grave when you die.",
-    "vibe": "Less rage quitting when you fall in lava (again)."
+    "description": "Stores your items safely in a grave when you die.",
+    "features": [
+      "Keeps your inventory in a grave at your death location",
+      "Stores XP so you can recover it"
+    ],
+    "howTo": [
+      "When you die, a grave spawns at your death location.",
+      "Break the grave to collect your items and stored XP."
+    ],
+    "link": "https://modrinth.com/mod/gravestones",
+    "media": ["/mods/gravestones-1.png"]
   },
   {
     "id": "jei",
     "name": "Just Enough Items (JEI)",
     "category": "misc",
     "tag": "Recipes",
-    "description": "Search recipes and item uses right from your inventory.",
-    "vibe": "No more alt-tabbing to figure out that one weird recipe."
+    "description": "Recipe and item-use viewer built into your inventory.",
+    "features": [
+      "Search for items and see crafting recipes",
+      "View all uses for an item",
+      "Great for modded packs with complex recipes"
+    ],
+    "howTo": [
+      "Hover an item and press R to see its recipes.",
+      "Hover an item and press U to see its uses."
+    ],
+    "link": "https://modrinth.com/mod/jei",
+    "media": ["/mods/jei-1.png"]
   }
 ]
