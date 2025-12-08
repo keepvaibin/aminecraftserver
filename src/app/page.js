@@ -377,6 +377,7 @@ export default function Home() {
               >
                 <div className="pointer-events-none absolute -left-20 top-0 h-full w-32 translate-x-0 rotate-12 bg-gradient-to-b from-white/60 via-white/20 to-transparent opacity-0 group-hover:translate-x-[140%] group-hover:opacity-100 transition-all duration-700" />
 
+                {/* Content */}
                 <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6">
                   <div className="flex-1 text-center md:text-left">
                     <p className="text-xs uppercase tracking-[0.25em] mb-2">
@@ -395,23 +396,25 @@ export default function Home() {
                       href="https://invite.chickenjockey.lol"
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 rounded-full border-2 border-black bg-[#111827] px-4 py-2 text-sm font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform"
+                      className="mt-4 inline-flex w-full max-w-sm md:max-w-none md:w-auto items-center justify-center gap-2 rounded-full border-2 border-black bg-[#111827] px-6 py-3 text-base md:px-8 md:py-3 md:text-lg font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform mx-auto md:mx-0"
                     >
                       <span>Join Discord</span>
-                      <span className="text-lg mt-1">💬</span>
+                      <span className="text-xl md:text-2xl mt-1">💬</span>
                     </a>
                   </div>
+                </div>
 
-                  <div className="relative hidden md:block">
-                    <Image
-                      src={arrow}
-                      alt="Arrow"
-                      width={120}
-                      className="translate-y-30 drop-shadow-[0_4px_0_rgba(0,0,0,0.6)] rotate-150"
-                    />
-                  </div>
+                {/* Arrow moved to bottom-right of card */}
+                <div className="pointer-events-none hidden md:block absolute bottom-4 right-6">
+                  <Image
+                    src={arrow}
+                    alt="Arrow"
+                    width={120}
+                    className="drop-shadow-[0_4px_0_rgba(0,0,0,0.6)] rotate-[150deg]"
+                  />
                 </div>
               </motion.div>
+
             </div>
           </div>
         </motion.section>
