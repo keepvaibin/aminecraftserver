@@ -43,48 +43,49 @@ const staggerContainer = {
   },
 };
 
+// FIXED POSITIONS: Positive values (left-[2%]) for mobile to prevent clipping off-screen.
 const SCRAPBOOK_PHOTOS = [
   { 
     id: 1, 
     src: imgSpawn, 
     alt: "Spawn Area",
-    className: "top-[10%] -left-[10%] xl:left-[2%] rotate-[-8deg] w-[60vw] xl:w-[28vw]",
+    className: "top-[10%] left-[-2%] md:left-[-5%] xl:left-[2%] rotate-[-8deg] w-[55vw] xl:w-[28vw]",
   },
   { 
     id: 2, 
     src: imgRuined, 
     alt: "Ruined Portal",
-    className: "top-[22%] -right-[10%] xl:right-[2%] rotate-[12deg] w-[60vw] xl:w-[28vw]", 
+    className: "top-[22%] right-[-2%] md:right-[-5%] xl:right-[2%] rotate-[12deg] w-[55vw] xl:w-[28vw]", 
   },
   { 
     id: 3, 
     src: imgTree, 
     alt: "Lava Tree",
-    className: "top-[35%] -left-[8%] xl:left-[5%] rotate-[-5deg] w-[60vw] xl:w-[28vw]", 
+    className: "top-[35%] left-[-1%] md:left-[-4%] xl:left-[5%] rotate-[-5deg] w-[55vw] xl:w-[28vw]", 
   },
   { 
     id: 4, 
     src: imgFlower, 
     alt: "Flower Field",
-    className: "top-[48%] -right-[8%] xl:right-[4%] rotate-[8deg] w-[60vw] xl:w-[28vw]", 
+    className: "top-[48%] right-[-1%] md:right-[-4%] xl:right-[4%] rotate-[8deg] w-[55vw] xl:w-[28vw]", 
   },
   { 
     id: 5, 
     src: imgTower, 
     alt: "Tall Tower",
-    className: "top-[62%] -left-[5%] xl:left-[3%] rotate-[-10deg] w-[60vw] xl:w-[28vw]", 
+    className: "top-[62%] left-[1%] md:left-[-3%] xl:left-[3%] rotate-[-10deg] w-[55vw] xl:w-[28vw]", 
   },
   { 
     id: 6, 
     src: imgPortal, 
     alt: "Warden Portal",
-    className: "top-[75%] -right-[10%] xl:right-[2%] rotate-[5deg] w-[60vw] xl:w-[30vw]", 
+    className: "top-[75%] right-[-2%] md:right-[-5%] xl:right-[2%] rotate-[5deg] w-[55vw] xl:w-[30vw]", 
   },
   { 
     id: 7, 
     src: imgCity, 
     alt: "Ancient City",
-    className: "top-[88%] -left-[5%] xl:left-[6%] rotate-[-3deg] w-[60vw] xl:w-[28vw]", 
+    className: "top-[88%] left-[1%] md:left-[-2%] xl:left-[6%] rotate-[-3deg] w-[55vw] xl:w-[28vw]", 
   },
 ];
 
@@ -94,23 +95,36 @@ export default function Home() {
   const [bgOffset, setBgOffset] = useState(0); 
   const [serverStatus, setServerStatus] = useState(null);
 
-  // Parallax background logic
+  // --- PARALLAX LOGIC (UPDATED) ---
   useEffect(() => {
     const handleScroll = () => {
       const doc = document.documentElement;
       const scrollTop = doc.scrollTop || window.pageYOffset;
       const maxScroll = doc.scrollHeight - window.innerHeight;
 
+      // 1. Calculate how far down the page we are (0.0 to 1.0)
       const progress = maxScroll > 0 ? scrollTop / maxScroll : 0; 
-      const maxShift = 5; 
-      const baseOffset = 0; 
 
-      setBgOffset(baseOffset - progress * maxShift);
+      // 2. Define the "buffer" we have available.
+      // We set the background height to 120vh. 
+      // This means we have 20vh of "extra" image to scroll through.
+      // We limit the shift to exactly that amount (minus a tiny buffer).
+      const MAX_POSSIBLE_SHIFT = 18; // We will move up to 18vh (leaving 2vh safety)
+      
+      // 3. Dynamic adjustment:
+      // On mobile, the page is very long, so a linear 1-to-1 map feels slow.
+      // On desktop, it's short. 
+      // But keeping it mapped to 'progress * MAX' ensures we NEVER show the black bar.
+      setBgOffset(-(progress * MAX_POSSIBLE_SHIFT));
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll); // Recalculate on resize/rotate
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   // Server status polling
@@ -155,20 +169,24 @@ export default function Home() {
 
   return (
     <>
-      {/* 1. FIXED BACKGROUND LAYER (Parallax) */}
+      {/* 1. BACKGROUND LAYER 
+        - Height set to 120vh (20vh taller than screen).
+        - Top set to 0.
+        - As you scroll down, 'bgOffset' becomes negative (e.g. -18vh).
+        - Since 120vh - 18vh > 100vh, we never see the bottom edge.
+      */}
       <div
         className="fixed inset-0 -z-50 pointer-events-none overflow-hidden cross-section-bg"
         style={{
+          height: '120vh', 
+          top: 0,
           backgroundPositionY: `${bgOffset}vh`,
+          backgroundSize: 'cover',
+          backgroundPositionX: 'center'
         }}
       />
 
-      {/* =========================================================================
-         NAVIGATION BUTTON - FIXED (OUTSIDE MAIN)
-         Changed 'absolute' to 'fixed' and moved it here.
-         This prevents it from triggering scrollbars on the main container.
-         =========================================================================
-      */}
+      {/* NAVIGATION BUTTON */}
       <Link href="/mods" className="absolute top-4 left-4 z-50 md:top-6 md:left-6 group">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -179,12 +197,10 @@ export default function Home() {
           </motion.div>
       </Link>
 
-      {/* =========================================================================
-          CONTENT LAYER
-         ========================================================================= */}
+      {/* CONTENT LAYER */}
       <main className="flex flex-col items-center pb-24 z-10 relative overflow-x-hidden w-full">
         
-        {/* 3. SCRAPBOOK PHOTOS LAYER (Static, Non-interactive) */}
+        {/* SCRAPBOOK PHOTOS LAYER */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
            {SCRAPBOOK_PHOTOS.map((photo) => (
              <motion.div
@@ -209,27 +225,28 @@ export default function Home() {
            ))}
         </div>
 
-        {/* ---------------- HERO (Sky Layer) ---------------- */}
+        {/* ---------------- HERO ---------------- */}
         <motion.div
-          className="mt-6 mb-12 flex flex-col items-center gap-3 px-4 pt-10 relative z-10"
+          className="mt-6 mb-12 flex flex-col items-center gap-3 px-4 pt-10 relative z-10 w-full"
           initial="hidden"
           animate="show"
           variants={staggerContainer}
         >
           <motion.div variants={fadeUp}>
-            <Image src={titleUCSC} alt="UCSC Logo" width={220} priority />
+            <Image src={titleUCSC} alt="UCSC Logo" width={220} priority className="w-[160px] md:w-[220px]" />
           </motion.div>
 
           <motion.div
             variants={fadeUp}
             whileHover={{ scale: 1.02, rotate: -0.5 }}
             transition={{ type: "spring", stiffness: 220, damping: 18 }}
+            className="w-full flex justify-center"
           >
             <Image
               src={titleMinecraft}
               alt="A Minecraft Server"
               width={820}
-              className="max-w-full drop-shadow-[0_6px_0_rgba(0,0,0,1)]"
+              className="max-w-[95vw] md:max-w-full drop-shadow-[0_6px_0_rgba(0,0,0,1)]"
             />
           </motion.div>
 
@@ -242,14 +259,14 @@ export default function Home() {
               src={titleModded}
               alt="Modded"
               width={150}
-              className="max-w-full drop-shadow-[0_4px_0_rgba(0,0,0,0.4)]"
+              className="max-w-[120px] md:max-w-full drop-shadow-[0_4px_0_rgba(0,0,0,0.4)]"
             />
           </motion.div>
         </motion.div>
 
-        {/* ---------------- MAP + IP + DISCORD GRID ---------------- */}
+        {/* ---------------- MAP + IP + DISCORD ---------------- */}
         <motion.section
-          className="w-full max-w-[90vw] px-4 mb-20 relative z-10"
+          className="w-full max-w-[95vw] lg:max-w-[90vw] px-0 md:px-4 mb-20 relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -262,8 +279,8 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-[#FDF2FF] flex items-center gap-2">
                     <span>Overworld Live Map</span>
                   </h3>
-                  <p className="text-xs text-[#f9e9ff]/80">
-                    Check out what people are up to and help explore more of the map to uncover new areas!
+                  <p className="text-xs text-[#f9e9ff]/80 hidden md:block">
+                    Check out what people are up to and help explore more of the map!
                   </p>
                 </div>
                 <div className="flex flex-col items-end gap-1 text-[11px] text-[#bbf7d0]">
@@ -277,13 +294,13 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-b from-[#0f172a] to-[#020617] border-t border-white/10 flex-1">
+              <div className="bg-gradient-to-b from-[#0f172a] to-[#020617] border-t border-white/10 flex-1 min-h-[300px]">
                 <iframe
                   src="https://map.chickenjockey.lol/?worldname=world&mapname=flat&zoom=0&x=16&y=64&z=0"
                   title="ChickenJockey Dynmap"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-[320px] md:h-[380px] lg:h-full"
+                  className="w-full h-full"
                 />
               </div>
             </div>
@@ -310,7 +327,7 @@ export default function Home() {
                       <p className="text-[11px] uppercase tracking-[0.18em] text-[#4b5563] mb-1">
                         IP Address
                       </p>
-                      <p className="font-mono text-sm md:text-base bg-[#EDE9FF]/60 inline-block px-2 py-1 rounded-lg border border-black">
+                      <p className="font-mono text-sm md:text-base bg-[#EDE9FF]/60 inline-block px-2 py-1 rounded-lg border border-black break-all">
                         chickenjockey.lol
                       </p>
                       <p className="mt-1 text-[11px] text-[#4b5563]/70">
@@ -396,22 +413,13 @@ export default function Home() {
                       href="https://invite.chickenjockey.lol"
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-4 inline-flex w-full max-w-sm md:max-w-none md:w-auto items-center justify-center gap-2 rounded-full border-2 border-black bg-[#111827] px-6 py-3 text-base md:px-8 md:py-3 md:text-lg font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform mx-auto md:mx-0"
+                      // CHANGED: Removed 'max-w-sm', 'md:w-auto', 'md:mx-0'. Added 'w-full'.
+                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-black bg-[#111827] px-6 py-3 text-base md:px-8 md:py-3 md:text-lg font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform"
                     >
                       <span>Join Discord</span>
                       <span className="text-xl md:text-2xl mt-1">💬</span>
                     </a>
                   </div>
-                </div>
-
-                {/* Arrow moved to bottom-right of card */}
-                <div className="pointer-events-none hidden md:block absolute bottom-4 right-6">
-                  <Image
-                    src={arrow}
-                    alt="Arrow"
-                    width={120}
-                    className="drop-shadow-[0_4px_0_rgba(0,0,0,0.6)] rotate-[150deg]"
-                  />
                 </div>
               </motion.div>
 
@@ -476,7 +484,7 @@ export default function Home() {
                   src={animals}
                   alt="Animals"
                   width={520}
-                  className="absolute bottom-[-160px] left-1/2 -translate-x-1/2 drop-shadow-[0_10px_0_rgba(0,0,0,0.7)]"
+                  className="absolute bottom-[-20%] md:bottom-[-160px] left-1/2 -translate-x-1/2 drop-shadow-[0_10px_0_rgba(0,0,0,0.7)] w-[80%] md:w-auto max-w-none"
                 />
               </div>
             </motion.div>
