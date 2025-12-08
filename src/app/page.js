@@ -401,7 +401,7 @@ export default function Home() {
                       Stay updated!
                     </p>
                     <h3 className="text-2xl md:text-3xl font-extrabold">
-                      (Semi-important) Join the ChickenJockey Discord!
+                      (IMPORTANT) Join the ChickenJockey Discord!
                     </h3>
                     <p className="mt-2 text-sm md:text-base text-black/80">
                       In order to properly enjoy the server, you should join the
@@ -410,7 +410,7 @@ export default function Home() {
                     </p>
 
                     <a
-                      href="https://invite.chickenjockey.lol"
+                      href="http://invite.chickenjockey.lol"
                       target="_blank"
                       rel="noreferrer"
                       // CHANGED: Removed 'max-w-sm', 'md:w-auto', 'md:mx-0'. Added 'w-full'.

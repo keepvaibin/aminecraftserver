@@ -5,7 +5,7 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import ModCard from "./ModCard";
 import ModModal from "./ModModal";
-import modsData from "../data/mods.json"; // Ensure this path matches your project structure
+import modsData from "../data/mods.json"; 
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -71,15 +71,10 @@ export default function ModsSection() {
 
   const modsByCategory = useMemo(() => {
     const grouped = {};
-    // Initialize all known categories with empty arrays
     for (const cat of CATEGORIES) {
       grouped[cat.id] = [];
     }
-    
-    // Sort mods into groups
     for (const mod of modsData) {
-      // Safety check: only add if the category actually exists in our list
-      // If you have categories in JSON not in CATEGORIES array, they will be skipped unless you add logic here
       if (grouped[mod.category]) {
         grouped[mod.category].push(mod);
       }
@@ -92,14 +87,14 @@ export default function ModsSection() {
   const currentMods = modsByCategory[currentCategory.id] || [];
 
   return (
-      <>
-        <motion.section
-          className="w-full max-w-6xl xl:max-w-7xl px-6 pb-24 font-minecraft" /* UPDATED HERE */
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
+    <>
+      <motion.section
+        className="w-full max-w-6xl xl:max-w-7xl px-4 md:px-6 pb-24 font-minecraft mx-auto"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <motion.div variants={fadeUp} className="mb-6 text-center">
           <p className="text-sm tracking-[0.25em] uppercase text-[#f9e9ff]/80">
             All the mods currently in
@@ -116,7 +111,8 @@ export default function ModsSection() {
         {/* Category pills */}
         <motion.div
           variants={fadeUp}
-          className="max-w-5xl mx-auto mb-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2"
+          // FIX: Width set to 90vw on mobile to match other cards, max-w-5xl on desktop
+          className="w-[90vw] md:w-full max-w-5xl mx-auto mb-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2"
         >
           {CATEGORIES.map((cat) => {
             const isActive = cat.id === activeCategory;
@@ -129,13 +125,14 @@ export default function ModsSection() {
                   setSelectedMod(null);
                 }}
                 className={[
-                  "group flex w-full items-center justify-center gap-2 rounded-full border-2 px-3 py-2 text-xs md:text-sm transition-all",
+                  // FIX: Reduced padding (px-2) and text size (text-[11px]) for mobile fitting
+                  "group flex w-full items-center justify-center gap-1.5 rounded-full border-2 px-2 py-2.5 md:px-3 md:py-2 text-[11px] sm:text-xs md:text-sm transition-all",
                   isActive
                     ? "bg-[#ffb7d5] text-[#1C1D60] border-black shadow-[0_6px_0_rgba(0,0,0,0.6)] translate-y-[-2px]"
                     : "bg-[rgba(15,23,42,0.9)] text-[#E0E7FF]/80 border-black/60 hover:bg-[#1f2937] hover:-translate-y-[1px]"
                 ].join(" ")}
               >
-                <span className="text-lg">{cat.emoji}</span>
+                <span className="text-base md:text-lg">{cat.emoji}</span>
                 <span className="font-semibold text-center leading-tight">
                   {cat.label}
                 </span>
@@ -144,22 +141,19 @@ export default function ModsSection() {
           })}
         </motion.div>
 
-
         {/* Active category card */}
-        {/* FIX APPLIED HERE:
-            1. Added key={activeCategory} so React remounts this div when category changes.
-            2. Added initial="hidden" and animate="show" to force animation restart.
-        */}
         <motion.div
           key={activeCategory}
           variants={fadeIn}
           initial="hidden"
           animate="show"
-          className="bg-[rgba(15,23,42,0.95)] border-4 border-black rounded-[32px] shadow-[0_14px_0_rgba(0,0,0,0.8)] p-6 md:p-8 text-[#FDF2FF]"
+          // FIX: Reduced padding to p-4 on mobile. Added box-border.
+          className="bg-[rgba(15,23,42,0.95)] border-4 border-black rounded-[32px] shadow-[0_14px_0_rgba(0,0,0,0.8)] p-4 md:p-8 text-[#FDF2FF] box-border w-full"
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <div>
-              <h3 className="text-2xl font-bold flex items-center gap-3">
+              {/* FIX: break-words ensures long titles don't push width out */}
+              <h3 className="text-xl md:text-2xl font-bold flex items-center gap-3 break-words">
                 <span className="text-2xl">{currentCategory.emoji}</span>
                 <span>{currentCategory.label}</span>
               </h3>
