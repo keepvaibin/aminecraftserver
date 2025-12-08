@@ -346,6 +346,7 @@ export default function Home() {
                   content instead of being forced into it. The overworld is cozy
                   and colorful, but if you want to go fight terrible things in
                   weird dimensions, we absolutely support that.
+
                 </p>
                 <ul className="list-disc list-inside text-sm md:text-base text-[#111827]/90 space-y-1.5">
                   <li>
