@@ -102,14 +102,14 @@ export default function ModsSection() {
         >
         <motion.div variants={fadeUp} className="mb-6 text-center">
           <p className="text-sm tracking-[0.25em] uppercase text-[#f9e9ff]/80">
-            The Modpack
+            All the mods currently in
           </p>
           <h2 className="mt-2 text-3xl md:text-4xl font-extrabold text-[#FDF2FF] drop-shadow-[0_4px_0_rgba(0,0,0,0.6)]">
-            Cute, Cursed, and Highly Optimized
+            The Modpack
           </h2>
           <p className="mt-3 text-sm md:text-base text-[#E0E7FF]/80 max-w-2xl mx-auto">
-            Whether you just want to build a cottage, hunt bosses, or vibe with
-            friends, this pack is tuned so everyone can play how they want.
+            Whether you just want to build, hunt bosses, or hang out with your
+            friends, this pack has something for you!
           </p>
         </motion.div>
 

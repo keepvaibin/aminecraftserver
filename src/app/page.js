@@ -1,4 +1,4 @@
-//page.js
+// page.js
 "use client";
 
 import { useEffect, useState } from "react";
@@ -16,27 +16,30 @@ import arrow from "../../assets/arrow.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  show: { opacity: 1, y: 0 },
 };
 
 const fadeIn = {
   hidden: { opacity: 0, scale: 0.96, y: 15 },
-  show: { opacity: 1, scale: 1, y: 0 }
+  show: { opacity: 1, scale: 1, y: 0 },
 };
 
 const staggerContainer = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.08
-    }
-  }
+      staggerChildren: 0.08,
+    },
+  },
 };
 
+const SERVER_STATUS_URL = "https://api.mcsrvstat.us/2/chickenjockey.lol";
+
 export default function Home() {
-
   const [bgOffset, setBgOffset] = useState(0); // in vh
+  const [serverStatus, setServerStatus] = useState(null);
 
+  // Parallax background
   useEffect(() => {
     const handleScroll = () => {
       const doc = document.documentElement;
@@ -44,8 +47,8 @@ export default function Home() {
       const maxScroll = doc.scrollHeight - window.innerHeight;
 
       const progress = maxScroll > 0 ? scrollTop / maxScroll : 0; // 0 → 1
-      const maxShift = 12;   // smaller, safe parallax range
-      const baseOffset = 10;  // tweak this if you want the image initially higher/lower
+      const maxShift = 5; // smaller, safe parallax range
+      const baseOffset = 0; // tweak this if you want the image initially higher/lower
 
       setBgOffset(baseOffset - progress * maxShift);
     };
@@ -55,7 +58,47 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Server status polling (every 10s)
+  useEffect(() => {
+    let isMounted = true;
 
+    const fetchStatus = async () => {
+      try {
+        const res = await fetch(SERVER_STATUS_URL);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (isMounted) {
+          setServerStatus(data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch server status", err);
+      }
+    };
+
+    fetchStatus(); // initial
+    const intervalId = setInterval(fetchStatus, 10000); // 10 seconds
+
+    return () => {
+      isMounted = false;
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  // Derived display values for the card
+  const isOnline =
+    serverStatus == null
+      ? null
+      : Boolean(serverStatus.online && serverStatus.debug?.ping);
+
+  const playersOnline =
+    serverStatus && serverStatus.players
+      ? serverStatus.players.online
+      : null;
+
+  const playersMax =
+    serverStatus && serverStatus.players ? serverStatus.players.max : null;
+
+  const serverVersion = serverStatus?.version ?? null;
 
   return (
     <>
@@ -108,16 +151,6 @@ export default function Home() {
               className="max-w-full drop-shadow-[0_4px_0_rgba(0,0,0,0.4)]"
             />
           </motion.div>
-
-          <motion.p
-            variants={fadeUp}
-            className="mt-3 text-center text-sm md:text-base max-w-2xl text-[#1f2937] font-bold bg-white/40 p-4 rounded-[20px] border-4 border-black shadow-[0_6px_0_rgba(0,0,0,0.5)]"
-          >
-            A cozy-chaotic, modded Fabric server where you can build a tiny
-            cottage, fight terrifying bosses{" "}
-            <span className="italic">if</span> you want, and spend way too long
-            decorating your base.
-          </motion.p>
         </motion.div>
 
         {/* ---------------- MAP + IP + DISCORD GRID ---------------- */}
@@ -127,18 +160,16 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="grid gap-6 lg:gap-8 lg:grid-cols-[70%_1fr] items-stretch">
+          <div className="grid gap-6 lg:gaplg lg:grid-cols-[70%_1fr] items-stretch">
             {/* Left: Map card */}
             <div className="bg-[rgba(15,23,42,0.9)]/90 border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.7)] overflow-hidden backdrop-blur-sm flex flex-col">
               <div className="flex items-center justify-between px-6 pt-4 pb-2">
                 <div>
                   <h3 className="text-xl font-bold text-[#FDF2FF] flex items-center gap-2">
                     <span>Overworld Live Map</span>
-                    <span className="text-lg">🗺️</span>
                   </h3>
                   <p className="text-xs text-[#f9e9ff]/80">
-                    Peek at bases, shops, and the occasional “who put lava
-                    there?” moment in real time.
+                    Check out what people are up to and help explore more of the map to uncover new areas!
                   </p>
                 </div>
                 <div className="flex flex-col items-end gap-1 text-[11px] text-[#bbf7d0]">
@@ -165,50 +196,81 @@ export default function Home() {
 
             {/* Right: IP info + Discord button (stacked) */}
             <div className="flex flex-col gap-6">
-              {/* Server info card */}
+              {/* Server info card (now dynamic status) */}
               <motion.div
                 variants={fadeIn}
                 initial="hidden"
                 animate="show"
-                className="group relative overflow-hidden bg-gradient-to-br from-[#ffb7d5] via-[#f9a8d4] to-[#60a5fa] border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.8)] px-6 py-6 md:px-8 md:py-8 text-[#111827]"
+                className="group relative overflow-hidden bg-gradient-to-br from-[#ffb7d5] via-[#f9a8d4] to-[#60a5fa] border-4 border-black rounded-[32px] shadow-[0_12px_0_rgba(0,0,0,0.8)] px-6 py-8 md:px-8 md:py-8 text-[#111827]"
               >
                 <div className="pointer-events-none absolute -left-20 top-0 h-full w-32 translate-x-0 rotate-12 bg-gradient-to-b from-white/60 via-white/20 to-transparent opacity-0 group-hover:translate-x-[140%] group-hover:opacity-100 transition-all duration-700" />
 
                 <div className="relative">
-                  <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                     <span>Server Info</span>
                     <span className="text-lg">🐔</span>
                   </h3>
-                  <p className="text-sm mb-4">
-                    Semi-cozy, semi-chaotic survival. Bring your friends, build
-                    a base, or just log in to pet every animal you see.
-                  </p>
 
                   <div className="space-y-3 text-xs md:text-sm">
-                    <div className="rounded-2xl bg-[#020617]/60 border border-white/20 px-4 py-3">
-                      <p className="text-[11px] uppercase tracking-[0.18em] text-[#A5B4FC] mb-1">
+                    {/* IP block stays, but version is dynamic */}
+                    <div className="rounded-2xl bg-[#EDE9FF]/60 border border-white/20 px-4 py-3">
+                      <p className="text-[11px] uppercase tracking-[0.18em] text-[#4b5563] mb-1">
                         IP Address
                       </p>
-                      <p className="font-mono text-sm md:text-base bg-black/40 inline-block px-2 py-1 rounded-lg border border-black">
+                      <p className="font-mono text-sm md:text-base bg-[#EDE9FF]/60 inline-block px-2 py-1 rounded-lg border border-black">
                         chickenjockey.lol
                       </p>
-                      <p className="mt-1 text-[11px] text-[#E0E7FF]/70">
-                        Java Edition · Fabric · 1.21.1 modded
+                      <p className="mt-1 text-[11px] text-[#4b5563]/70">
+                        Java Edition · Fabric
+                        {serverVersion ? ` · ${serverVersion} modded` : ""}
                       </p>
                     </div>
 
-                    <ul className="list-disc list-inside space-y-1.5">
-                      <li>
-                        Play casually or go full sweat with optional bosses.
-                      </li>
-                      <li>
-                        Builders, redstone nerds, and chaos gremlins welcome.
-                      </li>
-                      <li>
-                        Live map, waystones, and plenty of cute mods to keep
-                        things cozy.
-                      </li>
-                    </ul>
+                    {/* Status rows */}
+                    <div className="rounded-2xl bg-white/60 border border-black/10 px-4 py-3 flex items-center justify-between">
+                      <span className="text-[11px] uppercase tracking-[0.18em] text-[#4b5563]">
+                        Status
+                      </span>
+                      <span className="flex items-center gap-2 text-sm font-semibold">
+                        <span
+                          className={
+                            "w-2.5 h-2.5 rounded-full shadow-[0_0_6px_rgba(0,0,0,0.6)] " +
+                            (isOnline === null
+                              ? "bg-gray-400"
+                              : isOnline
+                              ? "bg-emerald-500"
+                              : "bg-red-500")
+                          }
+                        />
+                        <span>
+                          {isOnline === null
+                            ? "Checking..."
+                            : isOnline
+                            ? "Online"
+                            : "Offline"}
+                        </span>
+                      </span>
+                    </div>
+
+                    <div className="rounded-2xl bg-white/60 border border-black/10 px-4 py-3 flex items-center justify-between">
+                      <span className="text-[11px] uppercase tracking-[0.18em] text-[#4b5563]">
+                        Players
+                      </span>
+                      <span className="text-sm font-semibold">
+                        {playersOnline != null ? playersOnline : "—"}{" "}
+                        <span className="text-xs text-[#4b5563]">/</span>{" "}
+                        {playersMax != null ? playersMax : "—"}
+                      </span>
+                    </div>
+
+                    <div className="rounded-2xl bg-white/60 border border-black/10 px-4 py-3 flex items-center justify-between">
+                      <span className="text-[11px] uppercase tracking-[0.18em] text-[#4b5563]">
+                        Version
+                      </span>
+                      <span className="text-sm font-semibold">
+                        {serverVersion ?? "—"}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -226,14 +288,14 @@ export default function Home() {
                 <div className="relative flex flex-col md:flex-row items-center md:items-start gap-6">
                   <div className="flex-1 text-center md:text-left">
                     <p className="text-xs uppercase tracking-[0.25em] mb-2">
-                      Join the flock
+                      Stay updated!
                     </p>
                     <h3 className="text-2xl md:text-3xl font-extrabold">
                       Hop into the ChickenJockey Discord
                     </h3>
                     <p className="mt-2 text-sm md:text-base text-black/80">
                       Get whitelisted, see the full mod list, join events, and
-                      scream in voice chat when a creeper shows up behind you.
+                      meet new people!
                     </p>
 
                     <a
@@ -243,7 +305,7 @@ export default function Home() {
                       className="mt-4 inline-flex items-center gap-2 rounded-full border-2 border-black bg-[#111827] px-4 py-2 text-sm font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform"
                     >
                       <span>Join Discord</span>
-                      <span className="text-lg animate-bounce mt-1.5">💬</span>
+                      <span className="text-lg mt-1">💬</span>
                     </a>
                   </div>
 
@@ -252,7 +314,7 @@ export default function Home() {
                       src={arrow}
                       alt="Arrow"
                       width={120}
-                      className="rotate-[100] translate-y-30 drop-shadow-[0_4px_0_rgba(0,0,0,0.6)]"
+                      className="translate-y-30 drop-shadow-[0_4px_0_rgba(0,0,0,0.6)] rotate-150"
                     />
                   </div>
                 </div>
@@ -271,7 +333,7 @@ export default function Home() {
         >
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <motion.div variants={fadeUp} className="relative">
-              <div className="space-y-4 bg-white/40 border-4 border-black rounded-[32px] shadow-[0_10px_0_rgba(0,0,0,0.7)] px-6 md:px-8 py-6 md:py-8 backdrop-blur-sm">
+              <div className="space-y-4 bg-white/60 border-4 border-black rounded-[32px] shadow-[0_10px_0_rgba(0,0,0,0.7)] px-6 md:px-8 py-6 md:py-8 backdrop-blur-sm">
                 <p className="text-sm tracking-[0.25em] uppercase text-[#1f2937]/70">
                   What is ChickenJockey?
                 </p>
@@ -280,20 +342,20 @@ export default function Home() {
                 </h2>
                 <p className="text-sm md:text-base text-[#111827]/80">
                   Think: a comfy SMP where players can{" "}
-                  <span className="font-semibold">opt into</span> harder content
-                  instead of being forced into it. The overworld is cozy and
-                  colorful, but if you want to go fight terrible things in weird
-                  dimensions, we absolutely support that.
+                  <span className="font-semibold">opt into</span> harder
+                  content instead of being forced into it. The overworld is cozy
+                  and colorful, but if you want to go fight terrible things in
+                  weird dimensions, we absolutely support that.
                 </p>
                 <ul className="list-disc list-inside text-sm md:text-base text-[#111827]/90 space-y-1.5">
                   <li>
-                    <span className="font-semibold">Casual path:</span> decorate,
-                    farm, explore cute structures, collect critters.
+                    <span className="font-semibold">Casual path:</span>{" "}
+                    decorate, farm, explore cute structures, collect critters.
                   </li>
                   <li>
-                    <span className="font-semibold">Challenge path:</span> optional
-                    bosses, Deeper &amp; Darker, and other “why did I queue for
-                    this?” content.
+                    <span className="font-semibold">Challenge path:</span>{" "}
+                    optional bosses, Deeper &amp; Darker, and other “why did I
+                    queue for this?” content.
                   </li>
                   <li>
                     <span className="font-semibold">Social path:</span> Simple
@@ -303,7 +365,10 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeIn} className="relative flex justify-center">
+            <motion.div
+              variants={fadeIn}
+              className="relative flex justify-center"
+            >
               {/* existing backgroundMc + animals images stay exactly the same */}
               <div className="relative">
                 <Image
@@ -321,27 +386,13 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
-
-
-          <div className="flex flex-col items-center mt-40">
-            <Image
-              src={arrow}
-              alt="Arrow"
-              width={130}
-              className="rotate-[200deg] mb-1"
-            />
-            <p className="text-xl md:text-2xl font-bold text-[#fdf2ff] drop-shadow-[0_2px_0_rgba(0,0,0,0.7)]">
-              That could be you!
-            </p>
-          </div>
         </motion.section>
 
         {/* ---------------- MODS SECTION (Deepslate Layer) ---------------- */}
-        <div className="w-full max-w-[1280px] px-4">
+        <div className="w-full max-w-[1280px] px-4 mt-20">
           <ModsSection />
         </div>
       </main>
     </>
   );
 }
-

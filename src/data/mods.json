@@ -13,7 +13,8 @@
     ],
     "howTo": "Just install it and configure options under Options → Video Settings.",
     "link": "https://modrinth.com/mod/sodium",
-    "media": ["/mods/sodium-1.png", "/mods/sodium-2.gif"]
+    "media": ["/mods/sodium.png"],
+    "fileName": "sodium-fabric-0.6.13+mc1.21.1.jar"
   },
   {
     "id": "lithium",
@@ -28,7 +29,8 @@
     ],
     "howTo": "Runs automatically once installed; no extra setup needed.",
     "link": "https://modrinth.com/mod/lithium",
-    "media": ["/mods/lithium-1.png"]
+    "media": ["/mods/lithium.png"],
+    "fileName": "lithium-fabric-0.15.1+mc1.21.1.jar"
   },
   {
     "id": "ferrite-core",
@@ -43,7 +45,8 @@
     ],
     "howTo": "Install on client and/or server; no configuration required.",
     "link": "https://modrinth.com/mod/ferrite-core",
-    "media": ["/mods/ferrite-core-1.png"]
+    "media": ["/mods/ferritecore.jpeg"],
+    "fileName": "ferritecore-7.0.2-hotfix-fabric.jar"
   },
   {
     "id": "krypton",
@@ -58,7 +61,8 @@
     ],
     "howTo": "Install on the server for best effect; clients can also use it.",
     "link": "https://modrinth.com/mod/krypton",
-    "media": ["/mods/krypton-1.png"]
+    "media": ["/mods/krypton.png"],
+    "fileName": "krypton-0.2.8.jar"
   },
   {
     "id": "glitchcore",
@@ -72,7 +76,8 @@
     ],
     "howTo": "Drop it into your mods folder; it quietly helps everything behave.",
     "link": "https://modrinth.com/mod/glitchcore",
-    "media": ["/mods/glitchcore-1.png"]
+    "media": ["/mods/glitchcore.png"],
+    "fileName": "GlitchCore-fabric-1.21.1-2.1.0.0.jar"
   },
   {
     "id": "athena",
@@ -86,7 +91,43 @@
     ],
     "howTo": "Install alongside decorative/structure mods; no config needed.",
     "link": "https://modrinth.com/mod/athena",
-    "media": ["/mods/athena-1.png"]
+    "media": ["/mods/athena.png"],
+    "fileName": "athena-fabric-1.21-4.0.2.jar"
+  },
+  {
+    "id": "alternate-current",
+    "name": "Alternate Current",
+    "category": "optimizers",
+    "tag": "Redstone",
+    "description": "Reimplements redstone dust to drastically cut lag from complex circuits while keeping behavior vanilla-like.",
+    "features": [
+      "More efficient redstone power calculations",
+      "Reduces excessive block updates",
+      "Makes redstone update order predictable and stable"
+    ],
+    "howTo": "Install on client and server; existing redstone builds will just run faster.",
+    "link": "https://modrinth.com/mod/alternate-current",
+    "media": ["/mods/alternatecurrent.webp"],
+    "fileName": "alternate-current-mc1.21-1.9.0.jar"
+  },
+  {
+    "id": "iris-shaders",
+    "name": "Iris Shaders",
+    "category": "optimizers",
+    "tag": "Shaders",
+    "description": "Modern shader loader designed to be compatible with most OptiFine shader packs and to work great with Sodium.",
+    "features": [
+      "Loads many existing OptiFine shader packs",
+      "Built to be fast and compatible with modpacks",
+      "Pairs nicely with Sodium for high-FPS shaders"
+    ],
+    "howTo": [
+      "Install Iris like any other Fabric mod.",
+      "Drop shader packs into the shaderpacks folder and enable them in Video Settings → Shader Packs."
+    ],
+    "link": "https://modrinth.com/mod/iris",
+    "media": ["/mods/iris.png"],
+    "fileName": "iris-fabric-1.8.8+mc1.21.1.jar"
   },
 
   {
@@ -101,7 +142,8 @@
     ],
     "howTo": "Install whenever another mod lists Moonlight Lib as a dependency.",
     "link": "https://modrinth.com/mod/moonlight",
-    "media": ["/mods/moonlight-1.png"]
+    "media": ["/mods/moonlightlib.png"],
+    "fileName": "moonlight-1.21-2.26.8-fabric.jar"
   },
   {
     "id": "balm",
@@ -115,7 +157,8 @@
     ],
     "howTo": "Install if any of your mods require Balm; no extra setup.",
     "link": "https://modrinth.com/mod/balm",
-    "media": ["/mods/balm-1.png"]
+    "media": ["/mods/balm.png"],
+    "fileName": "balm-fabric-1.21.1-21.0.55.jar"
   },
   {
     "id": "terrablender",
@@ -129,7 +172,200 @@
     ],
     "howTo": "Install alongside biome/worldgen mods that ask for it.",
     "link": "https://modrinth.com/mod/terrablender",
-    "media": ["/mods/terrablender-1.png"]
+    "media": ["/mods/terrablender.png"],
+    "fileName": "TerraBlender-fabric-1.21.1-4.1.0.8.jar"
+  },
+  {
+    "id": "fabric-api",
+    "name": "Fabric API",
+    "category": "dependencies",
+    "tag": "Core",
+    "description": "Core API library for the Fabric modding toolchain used by most Fabric mods.",
+    "features": [
+      "Provides common hooks and interoperability for Fabric mods",
+      "Lightweight and modular APIs",
+      "Frequently updated for new Minecraft versions"
+    ],
+    "howTo": "Install Fabric API for almost any Fabric modpack unless a mod explicitly says it doesn’t need it.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/fabric-api",
+    "media": ["/mods/fabricapi.png"],
+    "fileName": "fabric-api-0.116.7+1.21.1.jar"
+  },
+  {
+    "id": "cloth-config",
+    "name": "Cloth Config API",
+    "category": "dependencies",
+    "tag": "Config",
+    "description": "Configuration library that provides in-game config screens for many mods.",
+    "features": [
+      "Lets mods expose options via a unified config UI",
+      "Supports Fabric and other loaders",
+      "Widely used dependency in modern packs"
+    ],
+    "howTo": "Install when a mod lists Cloth Config as a dependency; access config from Mod Menu or the mod’s own buttons.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/cloth-config",
+    "media": ["/mods/clothconfigapi.png"],
+    "fileName": "cloth-config-15.0.140-fabric.jar"
+  },
+  {
+    "id": "fabric-language-kotlin",
+    "name": "Fabric Language Kotlin",
+    "category": "dependencies",
+    "tag": "Kotlin",
+    "description": "Enables the Kotlin programming language for Fabric mods.",
+    "features": [
+      "Required for any Kotlin-based Fabric mods",
+      "Loader-version based, not content-version based",
+      "Maintained by the Fabric team"
+    ],
+    "howTo": "Install whenever a mod lists Fabric Language Kotlin as a dependency.",
+    "link": "https://modrinth.com/mod/fabric-language-kotlin",
+    "media": ["/mods/fabriclanguagekotlin.png"],
+    "fileName": "fabric-language-kotlin-1.13.7+kotlin.2.2.21.jar"
+  },
+  {
+    "id": "cardinal-components-api",
+    "name": "Cardinal Components API",
+    "category": "dependencies",
+    "tag": "Data",
+    "description": "Component system that lets mods attach custom data to entities, items, chunks, and more.",
+    "features": [
+      "Fast and modular component API",
+      "Used by many Fabric/Quilt mods internally",
+      "No user-facing GUI, just required in the background"
+    ],
+    "howTo": "Install if a mod requires Cardinal Components; no configuration needed.",
+    "link": "https://modrinth.com/mod/cardinal-components-api",
+    "media": ["/mods/cardinalcomponentsapi.png"],
+    "fileName": "cardinal-components-api-6.1.3.jar"
+  },
+  {
+    "id": "geckolib",
+    "name": "GeckoLib",
+    "category": "dependencies",
+    "tag": "Animation",
+    "description": "3D animation library for entities, blocks, armor, and more.",
+    "features": [
+      "Keyframe animation system for modded models",
+      "Used by many creature and boss mods",
+      "Supports advanced animation events and effects"
+    ],
+    "howTo": "Only needed because other mods depend on it; install when required.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/geckolib",
+    "media": ["/mods/geckolib.png"],
+    "fileName": "geckolib-fabric-1.21.1-4.8.2.jar"
+  },
+  {
+    "id": "puzzleslib",
+    "name": "Puzzles Lib",
+    "category": "dependencies",
+    "tag": "Library",
+    "description": "Shared library used by multiple mods, providing cross-loader utilities and abstractions.",
+    "features": [
+      "Common code for several large mods",
+      "Helps keep multi-loader mods consistent",
+      "Pure backend dependency; no direct gameplay changes"
+    ],
+    "howTo": "Install Puzzles Lib whenever a mod lists it as a dependency.",
+    "link": "https://modrinth.com/mod/puzzles-lib",
+    "media": ["/mods/puzzleslib.png"],
+    "fileName": "PuzzlesLib-v21.1.39-1.21.1-Fabric.jar"
+  },
+  {
+    "id": "resourcefullib",
+    "name": "Resourceful Lib",
+    "category": "dependencies",
+    "tag": "Library",
+    "description": "Utility and API library used by Team Resourceful’s mods and others.",
+    "features": [
+      "Networking and GUI helpers",
+      "APIs for predicates, tags, and recipes",
+      "Used by mods like Resourceful Bees and others"
+    ],
+    "howTo": "Install if a mod requires Resourceful Lib; no direct configuration needed.",
+    "link": "https://modrinth.com/mod/resourceful-lib",
+    "media": ["/mods/resourcefulllib.png"],
+    "fileName": "resourcefullib-fabric-1.21-3.0.12.jar"
+  },
+  {
+    "id": "midnightlib",
+    "name": "MidnightLib",
+    "category": "dependencies",
+    "tag": "Config",
+    "description": "Lightweight library that provides shared utilities and a flexible config system.",
+    "features": [
+      "Automatic integration with Mod Menu config screens",
+      "Common helpers for multiple MidnightDust mods",
+      "Tiny footprint, often bundled as Jar-in-Jar"
+    ],
+    "howTo": "Install when a mod lists MidnightLib as required.",
+    "link": "https://modrinth.com/mod/midnightlib",
+    "media": ["/mods/midnightlib.png"],
+    "fileName": "midnightlib-fabric-1.9.1+1.21.1.jar"
+  },
+  {
+    "id": "owo-lib",
+    "name": "oωo (owo-lib)",
+    "category": "dependencies",
+    "tag": "UI & config",
+    "description": "General utility, GUI, and config library for Fabric and Quilt mods.",
+    "features": [
+      "Declarative UI system for mod menus",
+      "Config and networking helpers",
+      "Backend for many modern Fabric mods"
+    ],
+    "howTo": "Install whenever a mod lists owo-lib as a dependency.",
+    "link": "https://modrinth.com/mod/owo-lib",
+    "media": ["/mods/owolib.png"],
+    "fileName": "owo-lib-0.12.15.4+1.21.jar"
+  },
+  {
+    "id": "pneumonocore",
+    "name": "PneumonoCore",
+    "category": "dependencies",
+    "tag": "Core",
+    "description": "Core library mod that Pneumono_’s mods depend on, including Gravestones.",
+    "features": [
+      "Shared utilities used across multiple Pneumono_ mods",
+      "Required for Gravestones and related content",
+      "Client and server library for Fabric/Quilt"
+    ],
+    "howTo": "Install PneumonoCore if a mod like Gravestones asks for it.",
+    "link": "https://modrinth.com/mod/pneumono_core",
+    "media": ["/mods/pneumonocore.png"],
+    "fileName": "pneumonocore-1.2.0+1.21.1.jar"
+  },
+  {
+    "id": "mavapi",
+    "name": "More Axolotl Variants API",
+    "category": "dependencies",
+    "tag": "API",
+    "description": "Lightweight API that lets other mods add custom axolotl variants while staying compatible.",
+    "features": [
+      "Allows registering new axolotl variants",
+      "Supports custom axolotl bucket item models",
+      "Used by content mods that expand axolotls"
+    ],
+    "howTo": "Install when a mod requires MAVAPI; it does not add variants on its own.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/mavapi",
+    "media": ["/mods/mavapi.png"],
+    "fileName": "mavapi-fabric-1.3.0-mc1.21.1.jar"
+  },
+  {
+    "id": "yungs-api",
+    "name": "YUNG’s API",
+    "category": "dependencies",
+    "tag": "YUNG’s library",
+    "description": "Library mod providing shared utilities and worldgen helpers for YUNG’s structure overhauls.",
+    "features": [
+      "Required by YUNG’s Better Strongholds/Fortresses and other YUNG mods",
+      "Worldgen helper utilities",
+      "Pure backend dependency"
+    ],
+    "howTo": "Install whenever a YUNG’s mod lists YUNG’s API as required.",
+    "link": "https://modrinth.com/mod/yungs-api",
+    "media": ["/mods/yungsapi.webp"],
+    "fileName": "YungsApi-1.21.1-Fabric-5.1.6.jar"
   },
 
   {
@@ -150,7 +386,8 @@
       "Upgrade backpacks via the Smithing Table."
     ],
     "link": "https://www.curseforge.com/minecraft/mc-mods/travelers-backpack",
-    "media": ["/mods/travelers-backpack-1.png", "/mods/travelers-backpack-2.png"]
+    "media": ["/mods/travelersbackpack-1.gif", "/mods/travelersbackpack-2.png"],
+    "fileName": "travelersbackpack-fabric-1.21.1-10.1.29.jar"
   },
   {
     "id": "carry-on",
@@ -167,7 +404,8 @@
       "Right-Click to place what you’re carrying."
     ],
     "link": "https://modrinth.com/mod/carry-on",
-    "media": ["/mods/carry-on-1.png"]
+    "media": ["/mods/carryon-1.gif", "/mods/carryon-2.webp"],
+    "fileName": "carryon-fabric-1.21.1-2.2.2.11.jar"
   },
   {
     "id": "appleskin",
@@ -183,7 +421,8 @@
     ],
     "howTo": "Install it and enjoy the extra HUD info; configurable in mod options.",
     "link": "https://modrinth.com/mod/appleskin",
-    "media": ["/mods/appleskin-1.png"]
+    "media": ["/mods/appleskin-1.webp", "/mods/appleskin-2.png"],
+    "fileName": "appleskin-fabric-mc1.21-3.0.6.jar"
   },
   {
     "id": "journeymap",
@@ -202,7 +441,8 @@
       "Press B to create a waypoint."
     ],
     "link": "https://modrinth.com/mod/journeymap",
-    "media": ["/mods/journeymap-1.png"]
+    "media": ["/mods/journeymap-1.png", "/mods/journeymap-2.jpg", "/mods/journeymap-3.webp"],
+    "fileName": "journeymap-fabric-1.21.1-6.0.0-beta.52.jar"
   },
   {
     "id": "waystones",
@@ -221,7 +461,8 @@
       "Craft warp scrolls and other items for remote travel."
     ],
     "link": "https://modrinth.com/mod/waystones",
-    "media": ["/mods/waystones-1.png"]
+    "media": ["/mods/waystones-1.webp", "/mods/waystones-2.jpg"],
+    "fileName": "waystones-fabric-1.21.1-21.1.24.jar"
   },
   {
     "id": "decorative-blocks-reborn",
@@ -235,7 +476,8 @@
     ],
     "howTo": "Craft the new blocks and use them like any other building block.",
     "link": "https://modrinth.com/mod/decorative-blocks-reborn",
-    "media": ["/mods/decorative-blocks-reborn-1.png"]
+    "media": ["/mods/decorativeblocks-1.png"],
+    "fileName": "DecorativeBlocks-Reborn-fabric-1.21.1-6.0.1.jar"
   },
   {
     "id": "macaws-furniture",
@@ -249,7 +491,8 @@
     ],
     "howTo": "Craft furniture in the crafting table and place it around your builds.",
     "link": "https://modrinth.com/mod/macaws-furniture",
-    "media": ["/mods/macaws-furniture-1.png"]
+    "media": ["/mods/macawsfurniture-1.png", "/mods/macawsfurniture-2.png", "/mods/macawsfurniture-3.png"],
+    "fileName": "mcw-furniture-3.4.1-mc1.21.1fabric.jar"
   },
   {
     "id": "chipped",
@@ -263,7 +506,8 @@
     ],
     "howTo": "Use the Chipping Bench to convert blocks into their fancy variants.",
     "link": "https://modrinth.com/mod/chipped",
-    "media": ["/mods/chipped-1.png"]
+    "media": ["/mods/chipped.webp"],
+    "fileName": "chipped-fabric-1.21.1-4.0.2.jar"
   },
   {
     "id": "critters-companions",
@@ -277,7 +521,110 @@
     ],
     "howTo": "Explore the world to find new critters in their natural habitats.",
     "link": "https://modrinth.com/mod/critters-and-companions",
-    "media": ["/mods/critters-companions-1.png"]
+    "media": ["/mods/crittersandcompanions-1.png", "/mods/crittersandcompanions-2.png", "/mods/crittersandcompanions-3.png"],
+    "fileName": "crittersandcompanions-fabric-1.21.1-2.3.4.jar"
+  },
+  {
+    "id": "living-things",
+    "name": "Living Things",
+    "category": "casual",
+    "tag": "Mobs",
+    "description": "Adds lots of new mobs to the world, focusing on a vanilla-friendly style.",
+    "features": [
+      "Many new animals and creatures to discover",
+      "Works well in exploration-heavy packs",
+      "Integrates cleanly with Fabric API"
+    ],
+    "howTo": "Install and explore; new mobs spawn naturally in appropriate biomes.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/living-things",
+    "media": [
+      "/mods/livingthings-1.png",
+      "/mods/livingthings-2.png",
+      "/mods/livingthings-3.png",
+      "/mods/livingthings-4.png",
+      "/mods/livingthings-5.png"
+    ],
+    "fileName": "livingthings-fabric-1.21.1-2.3.0.jar"
+  },
+  {
+    "id": "vanilla-degus",
+    "name": "Vanilla Degus",
+    "category": "casual",
+    "tag": "Pet",
+    "description": "Adds a new tamable rodent mob, the Degu, in a very vanilla-friendly style.",
+    "features": [
+      "New cute tamable mob",
+      "Fits naturally into vanilla worlds",
+      "Good companion for cozy players"
+    ],
+    "howTo": "Find Degus in the world and tame them with their preferred food (see mod page or JEI).",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/vanilla-degus",
+    "media": ["/mods/vanilladegus-1.jpg", "/mods/vanilladegus-2.jpg"],
+    "fileName": "vanilla_degus-1.21+-v1.5.2-fabric.jar"
+  },
+  {
+    "id": "waddles",
+    "name": "Waddles",
+    "category": "casual",
+    "tag": "Mobs",
+    "description": "Adds cute Adelie penguins that waddle around cold biomes.",
+    "features": [
+      "Penguins spawn in cold regions",
+      "Adorable ambient wildlife",
+      "Great for snowy base aesthetics"
+    ],
+    "howTo": "Travel to cold biomes and look for penguins wandering on ice and snow.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/waddles",
+    "media": ["/mods/waddles-1.png", "/mods/waddles-2.jpg", "/mods/waddles-3.jpg"],
+    "fileName": "Waddles-fabric-1.21-0.11.1.jar"
+  },
+  {
+    "id": "more-axolotl-variants",
+    "name": "More Axolotl Variants Mod",
+    "category": "casual",
+    "tag": "Mobs",
+    "description": "Adds a bunch of new axolotl variants with different colors and looks.",
+    "features": [
+      "Multiple new axolotl skins and variants",
+      "Some special variants are only breedable",
+      "Pairs with MAVAPI for compatibility"
+    ],
+    "howTo": "Breed axolotls and search rivers and caves to encounter the new variants.",
+    "link": "https://modrinth.com/mod/mavm",
+    "media": ["/mods/moreaxolotls-1.png", "/mods/moreaxolotls-2.png"],
+    "fileName": "mavm-fabric-1.3.1-mc1.21.1.jar"
+  },
+  {
+    "id": "ecologics",
+    "name": "Ecologics",
+    "category": "casual",
+    "tag": "Biomes+",
+    "description": "Overhauls and expands various vanilla biomes with new mobs, blocks, foods, and structures while staying close to vanilla style.",
+    "features": [
+      "Adds biome-specific mobs like crabs and camels",
+      "New trees, foods, and small structures",
+      "Vanilla-friendly art and balance"
+    ],
+    "howTo": "Generate a new world and explore common biomes to find Ecologics’ new content.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/ecologics",
+    "media": ["/mods/ecologics-1.jpg", "/mods/ecologics-2.png", "/mods/ecologics-3.png"],
+    "fileName": "ecologics-fabric-1.21.1-2.3.1.jar"
+  },
+  {
+    "id": "custom-nether-portals",
+    "name": "Custom Nether Portals",
+    "category": "misc",
+    "tag": "Portals",
+    "description": "Lets you build nether portals in almost any shape, size, and orientation.",
+    "features": [
+      "Portals can be built in custom shapes",
+      "Place portals on floors, walls, or ceilings",
+      "More creative freedom for nether access builds"
+    ],
+    "howTo": "Build a portal frame in your chosen shape with obsidian, then light it like a normal nether portal.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/custom-nether-portals",
+    "media": ["/mods/customnetherportals-1.png", "/mods/customnetherportals-2.png"],
+    "fileName": "custom_nether_portals-fabric-1.21.1-1.0.0.jar"
   },
 
   {
@@ -294,11 +641,12 @@
     "howTo": "Follow the in-game advancements or wiki for how to summon each boss.",
     "link": "https://modrinth.com/mod/bosses-of-mass-destruction",
     "media": [
-      "/mods/bomd-1.png",
-      "/mods/bomd-2.png",
-      "/mods/bomd-3.png",
-      "/mods/bomd-4.png"
-    ]
+      "/mods/bossesofmassdestruction-1.png",
+      "/mods/bossesofmassdestruction-2.png",
+      "/mods/bossesofmassdestruction-3.png",
+      "/mods/bossesofmassdestruction-4.png"
+    ],
+    "fileName": "BOMD-1.10.2-1.21.1.jar"
   },
   {
     "id": "deeper-darker",
@@ -309,16 +657,96 @@
     "features": [
       "New biomes like Deeplands, Echoing Forest, Overcast Columns, and Blooming Caverns",
       "Ancient temples and other sculk ruins with dangerous mobs",
-      "New blocks like Gloomslate, Sculk Stone, and a new wood set",
-      "Warden armor and tools plus Soul Elytra with a rocket-free launch ability"
+      "New blocks, armor, tools, and the Soul Elytra"
     ],
     "howTo": [
-      "Defeat the Warden and obtain its special drop (Heart of the Deep or equivalent).",
-      "Use it on the mod’s portal structure to enter The Otherside (check wiki/guide for exact recipe).",
-      "Press the configured key (default B) while wearing Soul Elytra to launch into flight; ability has a cooldown."
+      "Defeat the Warden and obtain its special drop.",
+      "Use it on the mod’s portal structure to enter The Otherside (see the mod’s guide).",
+      "Use the Soul Elytra’s active ability to launch yourself into flight."
     ],
     "link": "https://www.minecraft-guides.com/mod/deeper-and-darker/",
-    "media": ["/mods/deeper-darker-1.png"]
+    "media": ["/mods/deeperdarker-1.jpg", "/mods/deeperdarker-2.png"],
+    "fileName": "deeperdarker-fabric-1.21-1.3.3.jar"
+  },
+  {
+    "id": "eternal-starlight",
+    "name": "Eternal Starlight",
+    "category": "challenge",
+    "tag": "RPG Dimension",
+    "description": "Large RPG-style dimension mod focused on exploration, bosses, and rare materials in a magical starlight realm.",
+    "features": [
+      "New dimension with unique biomes and structures",
+      "Progression through powerful bosses and enemies",
+      "End-game materials used by some big modpacks"
+    ],
+    "howTo": "Follow the mod’s progression (often via quests or advancements) to obtain the items needed to open the Starlight portal.",
+    "link": "https://www.minecraft-guides.com/wiki/eternal-starlight/",
+    "media": ["/mods/eternalstarlight-1.png", "/mods/eternalstarlight-2.png", "/mods/eternalstarlight-3.png"],
+    "fileName": "eternalstarlight-0.6.2+1.21.1+fabric.jar"
+  },
+  {
+    "id": "oblivion",
+    "name": "Oblivion",
+    "category": "challenge",
+    "tag": "Hard Dimension",
+    "description": "Adds a forgotten, extremely dangerous dimension intended for late-game players only.",
+    "features": [
+      "New hostile dimension with brutal terrain and mobs",
+      "High risk, high reward gear and resources",
+      "Designed for tough combat-focused players"
+    ],
+    "howTo": "Use the in-game guide or advancements to learn how to build and activate the portal to Oblivion.",
+    "link": "https://modrinth.com/mod/theoblivion",
+    "media": ["/mods/oblivion.png"],
+    "fileName": "oblivion-1.0.3.jar"
+  },
+  {
+    "id": "paradise-lost",
+    "name": "Paradise Lost",
+    "category": "challenge",
+    "tag": "Skylands",
+    "description": "A Skylands/Aether-inspired dimension with floating islands, new biomes, and unique structures.",
+    "features": [
+      "New sky dimension with floating islands",
+      "Fresh plants, mobs, and resources",
+      "Dungeons and structures with custom loot"
+    ],
+    "howTo": "Craft a Bloomed Calcite portal frame, flood it with water, and step through to reach Paradise.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/paradise-lost",
+    "media": ["/mods/paradiselost-1.png"],
+    "fileName": "paradise-lost-2.3.3-beta+1.21.0.jar"
+  },
+  {
+    "id": "bumblezone",
+    "name": "The Bumblezone",
+    "category": "challenge",
+    "tag": "Bee Dimension",
+    "description": "Bee-themed dimension that looks like the inside of a giant hive, full of honeycomb terrain, structures, and angry bees.",
+    "features": [
+      "Honeycomb maze-like terrain with canals and walls",
+      "Unique bee armor and items",
+      "Special structures and the Bee Queen"
+    ],
+    "howTo": "Enter the dimension using its special hive-based portal mechanic (see the mod’s wiki for the exact method).",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/the-bumblezone-forge",
+    "media": ["/mods/bumblezone-1.png", "/mods/bumblezone-2.png", "/mods/bumblezone-3.png"],
+    "fileName": "the_bumblezone-7.11.6+1.21.1-fabric.jar"
+  },
+  {
+    "id": "illager-invasion",
+    "name": "Illager Invasion",
+    "category": "challenge",
+    "tag": "Raids",
+    "description": "Expands Illagers with many new enemy types, structures, and tougher raids.",
+    "features": [
+      "New Illager variants with unique abilities",
+      "Additional Illager structures around the world",
+      "Harder village raids with extra enemies"
+    ],
+    "howTo": "Explore to find new Illager structures and trigger raids as usual; they’ll naturally include the new mobs.",
+    "link": "https://modrinth.com/mod/illager-invasion",
+    "media": ["/mods/illagerinvasion.png"],
+    "fileName": "IllagerInvasion-v21.1.6-1.21.1-Fabric.jar"
   },
 
   {
@@ -337,11 +765,11 @@
     ],
     "link": "https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty",
     "media": [
-      "/mods/biomes-o-plenty-1.png",
-      "/mods/biomes-o-plenty-2.png",
-      "/mods/biomes-o-plenty-3.png",
-      "/mods/biomes-o-plenty-4.png"
-    ]
+      "/mods/biomesoplenty-1.png",
+      "/mods/biomesoplenty-2.jpg",
+      "/mods/biomesoplenty-3.png"
+    ],
+    "fileName": "BiomesOPlenty-fabric-1.21.1-21.1.0.13.jar"
   },
   {
     "id": "hopo-mineshafts",
@@ -356,11 +784,13 @@
     "howTo": "Explore underground to discover revamped mineshafts in new worlds.",
     "link": "https://modrinth.com/datapack/hopo-better-mineshaft",
     "media": [
-      "/mods/hopo-mineshafts-1.png",
-      "/mods/hopo-mineshafts-2.png",
-      "/mods/hopo-mineshafts-3.png",
-      "/mods/hopo-mineshafts-4.png"
-    ]
+      "/mods/hopobettermineshaft-1.png",
+      "/mods/hopobettermineshaft-2.png",
+      "/mods/hopobettermineshaft-3.png",
+      "/mods/hopobettermineshaft-4.png",
+      "/mods/hopobettermineshaft-5.png"
+    ],
+    "fileName": "HopoBetterMineshaft-[1.21-1.21.3]-1.3.0b.jar"
   },
   {
     "id": "hopo-underwater-ruins",
@@ -374,7 +804,13 @@
     ],
     "howTo": "Swim or boat around oceans to find the new ruins.",
     "link": "https://modrinth.com/mod/hopo-better-underwater-ruins",
-    "media": ["/mods/hopo-underwater-ruins-1.png"]
+    "media": [
+      "/mods/hopobetterunderwaterruin-1.jpg",
+      "/mods/hopobetterunderwaterruin-1.png",
+      "/mods/hopobetterunderwaterruin-2.png",
+      "/mods/hopobetterunderwaterruin-3.png"
+    ],
+    "fileName": "HopoBetterUnderwaterRuins-[1.21.1-1.21.3]-1.2.1b.jar"
   },
   {
     "id": "yungs-strongholds",
@@ -388,7 +824,12 @@
     ],
     "howTo": "Find strongholds as usual with Eyes of Ender; they’ll be upgraded in new worlds.",
     "link": "https://modrinth.com/mod/yungs-better-strongholds",
-    "media": ["/mods/yungs-strongholds-1.png"]
+    "media": [
+      "/mods/yungbetterstrongholds-1.png",
+      "/mods/yungbetterstrongholds-2.png",
+      "/mods/yungbetterstrongholds-3.png"
+    ],
+    "fileName": "YungsBetterStrongholds-1.21.1-Fabric-5.1.3.jar"
   },
   {
     "id": "yungs-nether-fortresses",
@@ -402,7 +843,11 @@
     ],
     "howTo": "Explore the Nether to find the upgraded fortresses.",
     "link": "https://modrinth.com/mod/yungs-better-nether-fortresses",
-    "media": ["/mods/yungs-nether-fortresses-1.png"]
+    "media": [
+      "/mods/yungbetternetherfortress-1.png",
+      "/mods/yungbetternetherfortress-2.png"
+    ],
+    "fileName": "YungsBetterNetherFortresses-1.21.1-Fabric-3.1.5.jar"
   },
   {
     "id": "structory",
@@ -416,7 +861,52 @@
     ],
     "howTo": "Just explore; new structures appear naturally in new worlds.",
     "link": "https://modrinth.com/mod/structory",
-    "media": ["/mods/structory-1.png"]
+    "media": [
+      "/mods/structory-1.jpg",
+      "/mods/structory-2.jpg",
+      "/mods/structory-3.jpg"
+    ],
+    "fileName": "Structory_1.21.x_v1.3.12.jar"
+  },
+  {
+    "id": "terralith",
+    "name": "Terralith",
+    "category": "terrain",
+    "tag": "Worldgen",
+    "description": "Massive overworld worldgen overhaul that keeps vanilla blocks but creates dramatic new landscapes.",
+    "features": [
+      "Dozens of custom biomes and terrain shapes",
+      "Uses only vanilla blocks for great compatibility",
+      "Pairs well with structure and mob mods"
+    ],
+    "howTo": "Create a new world with Terralith installed; existing worlds won’t get the new terrain in already-generated chunks.",
+    "link": "https://www.curseforge.com/minecraft/mc-mods/terralith",
+    "media": [
+      "/mods/terralith-1.jpg",
+      "/mods/terralith-2.jpg",
+      "/mods/terralith-3.jpg"
+    ],
+    "fileName": "Terralith_1.21.x_v2.5.8.jar"
+  },
+  {
+    "id": "stellarity",
+    "name": "Stellarity",
+    "category": "terrain",
+    "tag": "End overhaul",
+    "description": "Extremely large End overhaul datamod with new terrain, biomes, items, and mechanics.",
+    "features": [
+      "Reworks the End with unique fantasy-style biomes",
+      "Adds new structures, items, and weapons",
+      "Focuses on exploration and late-game progression"
+    ],
+    "howTo": "Start a new world or explore untouched End chunks to see Stellarity’s new content.",
+    "link": "https://modrinth.com/datapack/stellarity",
+    "media": [
+      "/mods/stellarity-1.png",
+      "/mods/stellarity-2.png",
+      "/mods/stellarity-3.png"
+    ],
+    "fileName": "Stellarity-3.0.6.1.jar"
   },
 
   {
@@ -435,7 +925,8 @@
       "Configure push-to-talk and mute options in the menu."
     ],
     "link": "https://modrinth.com/mod/simple-voice-chat",
-    "media": ["/mods/simple-voice-chat-1.png"]
+    "media": ["/mods/simplevoicechat-1.png", "/mods/simplevoicechat-2.png"],
+    "fileName": "voicechat-fabric-1.21.1-2.6.6.jar"
   },
   {
     "id": "gravestones",
@@ -451,8 +942,9 @@
       "When you die, a grave spawns at your death location.",
       "Break the grave to collect your items and stored XP."
     ],
-    "link": "https://modrinth.com/mod/gravestones",
-    "media": ["/mods/gravestones-1.png"]
+    "link": "https://modrinth.com/mod/pneumono_gravestones",
+    "media": ["/mods/gravestones-1.png"],
+    "fileName": "gravestones-1.2.6+1.21.1+A.jar"
   },
   {
     "id": "jei",
@@ -470,6 +962,7 @@
       "Hover an item and press U to see its uses."
     ],
     "link": "https://modrinth.com/mod/jei",
-    "media": ["/mods/jei-1.png"]
+    "media": ["/mods/justenoughitems-1.jpg", "/mods/justenoughitems-2.png"],
+    "fileName": "jei-1.21.1-fabric-19.25.1.332.jar"
   }
 ]
