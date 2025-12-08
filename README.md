@@ -1,15 +1,32 @@
 <div align="center">
 
-# ![UCSC](ucsc.png)
-# ![A Minecraft Server](aminecraftserver.png)
+# [chickenjockey.lol](https://chickenjockey.lol)
 
-![Modded](modded.png)
+<img width="316" height="120" alt="ucsc" src="https://github.com/user-attachments/assets/ac8bc437-1afb-41a3-9e98-39ec48545d35" />
+<img width="1203" height="120" alt="aminecraftserver" src="https://github.com/user-attachments/assets/3b723cc5-be54-466e-97b7-f6a937abfd79" />
+
+<img width="602" height="129" alt="modded" src="https://github.com/user-attachments/assets/cc9408d1-954f-40b8-aae0-5053df33b37c" />
 
 ---
 
 ### **Build a silly little life on a silly little server.**
 
-![Cherry Blossom Grove](backgroundmc.jpg)
+<img width="3840" height="2054" alt="spawn-min" src="https://github.com/user-attachments/assets/6e6e3382-eff4-4a97-b9d3-315dbdf0bd63" />
+
+</div>
+
+<div align="center">
+
+<img width="316" height="120" alt="ucsc" src="https://github.com/user-attachments/assets/ac8bc437-1afb-41a3-9e98-39ec48545d35" />
+<img width="1203" height="120" alt="aminecraftserver" src="https://github.com/user-attachments/assets/3b723cc5-be54-466e-97b7-f6a937abfd79" />
+
+<img width="602" height="129" alt="modded" src="https://github.com/user-attachments/assets/cc9408d1-954f-40b8-aae0-5053df33b37c" />
+
+---
+
+### **Build a silly little life on a silly little server.**
+
+<img width="3840" height="2054" alt="spawn-min" src="https://github.com/user-attachments/assets/6e6e3382-eff4-4a97-b9d3-315dbdf0bd63" />
 
 </div>
 
@@ -31,7 +48,7 @@ We run on **Java 1.21.1** using the **Fabric** modloader.
 | :---: | :---: | :---: |
 | `chickenjockey.lol` | [View Map](https://map.chickenjockey.lol) | [Join Discord](https://invite.chickenjockey.lol) |
 
-<img width="3840" height="2054" alt="spawn-min" src="https://github.com/user-attachments/assets/6e6e3382-eff4-4a97-b9d3-315dbdf0bd63" />
+<img width="3840" height="2054" alt="ruined-min" src="https://github.com/user-attachments/assets/ab81d4e3-30b0-4326-93f4-362f9ae8aa73" />
 
 > **⚠️ IMPORTANT:** Joining the Discord is highly recommended! It's where you'll find the full modpack download instructions, server status updates, announcements, and community events.
 
