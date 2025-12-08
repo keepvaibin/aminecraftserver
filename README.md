@@ -15,21 +15,6 @@
 
 </div>
 
-<div align="center">
-
-<img width="316" height="120" alt="ucsc" src="https://github.com/user-attachments/assets/ac8bc437-1afb-41a3-9e98-39ec48545d35" />
-<img width="1203" height="120" alt="aminecraftserver" src="https://github.com/user-attachments/assets/3b723cc5-be54-466e-97b7-f6a937abfd79" />
-
-<img width="602" height="129" alt="modded" src="https://github.com/user-attachments/assets/cc9408d1-954f-40b8-aae0-5053df33b37c" />
-
----
-
-### **Build a silly little life on a silly little server.**
-
-<img width="3840" height="2054" alt="spawn-min" src="https://github.com/user-attachments/assets/6e6e3382-eff4-4a97-b9d3-315dbdf0bd63" />
-
-</div>
-
 ## About The Server
 
 Welcome to the ChickenJockey SMP! We are a comfy, modded Minecraft server designed around the idea that players should be able to **opt-in** to harder content instead of being forced into it.
