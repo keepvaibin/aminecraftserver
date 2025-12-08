@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // We removed basePath and assetPrefix because on a custom subdomain,
-  // your app is served from the root "/"
+  // removed basePath and assetPrefix because on a custom subdomain,
+  // app is served from the root "/"
 };
 
 export default nextConfig;
