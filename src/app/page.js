@@ -3,16 +3,26 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link"; 
 import { motion } from "framer-motion";
 import ModsSection from "../components/ModsSection";
 
-// images
+// --- EXISTING IMAGES ---
 import titleUCSC from "../../assets/ucsc.png";
 import titleMinecraft from "../../assets/aminecraftserver.png";
 import titleModded from "../../assets/modded.png";
 import backgroundMc from "../../assets/backgroundmc.jpg";
 import animals from "../../assets/minecraftanimals.png";
 import arrow from "../../assets/arrow.png";
+
+// --- SCRAPBOOK IMAGES ---
+import imgSpawn from "../../assets/spawn.png";
+import imgRuined from "../../assets/ruined.png";
+import imgTower from "../../assets/talltower night.png";
+import imgTree from "../../assets/treelava.png";
+import imgFlower from "../../assets/flowerfieldnight.png";
+import imgPortal from "../../assets/wardendcityportal.png";
+import imgCity from "../../assets/wardencityother.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -33,22 +43,67 @@ const staggerContainer = {
   },
 };
 
+const SCRAPBOOK_PHOTOS = [
+  { 
+    id: 1, 
+    src: imgSpawn, 
+    alt: "Spawn Area",
+    className: "top-[10%] -left-[10%] xl:left-[2%] rotate-[-8deg] w-[60vw] xl:w-[28vw]",
+  },
+  { 
+    id: 2, 
+    src: imgRuined, 
+    alt: "Ruined Portal",
+    className: "top-[22%] -right-[10%] xl:right-[2%] rotate-[12deg] w-[60vw] xl:w-[28vw]", 
+  },
+  { 
+    id: 3, 
+    src: imgTree, 
+    alt: "Lava Tree",
+    className: "top-[35%] -left-[8%] xl:left-[5%] rotate-[-5deg] w-[60vw] xl:w-[28vw]", 
+  },
+  { 
+    id: 4, 
+    src: imgFlower, 
+    alt: "Flower Field",
+    className: "top-[48%] -right-[8%] xl:right-[4%] rotate-[8deg] w-[60vw] xl:w-[28vw]", 
+  },
+  { 
+    id: 5, 
+    src: imgTower, 
+    alt: "Tall Tower",
+    className: "top-[62%] -left-[5%] xl:left-[3%] rotate-[-10deg] w-[60vw] xl:w-[28vw]", 
+  },
+  { 
+    id: 6, 
+    src: imgPortal, 
+    alt: "Warden Portal",
+    className: "top-[75%] -right-[10%] xl:right-[2%] rotate-[5deg] w-[60vw] xl:w-[30vw]", 
+  },
+  { 
+    id: 7, 
+    src: imgCity, 
+    alt: "Ancient City",
+    className: "top-[88%] -left-[5%] xl:left-[6%] rotate-[-3deg] w-[60vw] xl:w-[28vw]", 
+  },
+];
+
 const SERVER_STATUS_URL = "https://api.mcsrvstat.us/2/chickenjockey.lol";
 
 export default function Home() {
-  const [bgOffset, setBgOffset] = useState(0); // in vh
+  const [bgOffset, setBgOffset] = useState(0); 
   const [serverStatus, setServerStatus] = useState(null);
 
-  // Parallax background
+  // Parallax background logic
   useEffect(() => {
     const handleScroll = () => {
       const doc = document.documentElement;
       const scrollTop = doc.scrollTop || window.pageYOffset;
       const maxScroll = doc.scrollHeight - window.innerHeight;
 
-      const progress = maxScroll > 0 ? scrollTop / maxScroll : 0; // 0 → 1
-      const maxShift = 5; // smaller, safe parallax range
-      const baseOffset = 0; // tweak this if you want the image initially higher/lower
+      const progress = maxScroll > 0 ? scrollTop / maxScroll : 0; 
+      const maxShift = 5; 
+      const baseOffset = 0; 
 
       setBgOffset(baseOffset - progress * maxShift);
     };
@@ -58,10 +113,9 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Server status polling (every 10s)
+  // Server status polling
   useEffect(() => {
     let isMounted = true;
-
     const fetchStatus = async () => {
       try {
         const res = await fetch(SERVER_STATUS_URL);
@@ -75,8 +129,8 @@ export default function Home() {
       }
     };
 
-    fetchStatus(); // initial
-    const intervalId = setInterval(fetchStatus, 10000); // 10 seconds
+    fetchStatus(); 
+    const intervalId = setInterval(fetchStatus, 10000); 
 
     return () => {
       isMounted = false;
@@ -84,7 +138,6 @@ export default function Home() {
     };
   }, []);
 
-  // Derived display values for the card
   const isOnline =
     serverStatus == null
       ? null
@@ -102,22 +155,63 @@ export default function Home() {
 
   return (
     <>
-      {/* BACKGROUND LAYER */}
+      {/* 1. FIXED BACKGROUND LAYER (Parallax) */}
       <div
-        className="fixed inset-0 -z-10 pointer-events-none overflow-hidden cross-section-bg"
+        className="fixed inset-0 -z-50 pointer-events-none overflow-hidden cross-section-bg"
         style={{
           backgroundPositionY: `${bgOffset}vh`,
         }}
       />
 
       {/* =========================================================================
+         NAVIGATION BUTTON - FIXED (OUTSIDE MAIN)
+         Changed 'absolute' to 'fixed' and moved it here.
+         This prevents it from triggering scrollbars on the main container.
+         =========================================================================
+      */}
+      <Link href="/mods" className="absolute top-4 left-4 z-50 md:top-6 md:left-6 group">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className = "bg-[#111827] text-[#FDF2FF] border-2 border-black px-3 py-1.5 text-sm md:px-8 md:py-4 md:text-base rounded-full font-bold shadow-[4px_4px_0_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center gap-2 cursor-pointer">
+            <span>Mod List</span>
+            <span className="text-base md:text-lg mt-[1px]">:)</span>
+          </motion.div>
+      </Link>
+
+      {/* =========================================================================
           CONTENT LAYER
-          Sits on top (z-10). The background is transparent so we see the layers below.
          ========================================================================= */}
-      <main className="flex flex-col items-center pb-24 z-10 relative">
+      <main className="flex flex-col items-center pb-24 z-10 relative overflow-x-hidden w-full">
+        
+        {/* 3. SCRAPBOOK PHOTOS LAYER (Static, Non-interactive) */}
+        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden">
+           {SCRAPBOOK_PHOTOS.map((photo) => (
+             <motion.div
+               key={photo.id}
+               className={`absolute p-1 xl:p-3 bg-white shadow-[0_4px_15px_rgba(0,0,0,0.6)] ${photo.className}`}
+               initial={{ opacity: 0, scale: 0.8 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true, margin: "-50px" }}
+             >
+               <div className="relative overflow-hidden border border-gray-200 bg-gray-100 w-full h-full">
+                 <Image 
+                   src={photo.src} 
+                   alt={photo.alt}
+                   className="object-cover w-full h-auto"
+                   placeholder="blur" 
+                 />
+               </div>
+               
+               {/* Tape Effect */}
+               <div className="absolute -top-3 xl:-top-5 left-1/2 -translate-x-1/2 w-10 h-3 xl:w-16 xl:h-5 bg-[#ffffffaa] shadow-sm rotate-1" />
+             </motion.div>
+           ))}
+        </div>
+
         {/* ---------------- HERO (Sky Layer) ---------------- */}
         <motion.div
-          className="mt-6 mb-12 flex flex-col items-center gap-3 px-4 pt-10"
+          className="mt-6 mb-12 flex flex-col items-center gap-3 px-4 pt-10 relative z-10"
           initial="hidden"
           animate="show"
           variants={staggerContainer}
@@ -155,7 +249,7 @@ export default function Home() {
 
         {/* ---------------- MAP + IP + DISCORD GRID ---------------- */}
         <motion.section
-          className="w-full max-w-[90vw] px-4 mb-20"
+          className="w-full max-w-[90vw] px-4 mb-20 relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -194,9 +288,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: IP info + Discord button (stacked) */}
+            {/* Right: IP info + Discord button */}
             <div className="flex flex-col gap-6">
-              {/* Server info card (now dynamic status) */}
+              {/* Server info card */}
               <motion.div
                 variants={fadeIn}
                 initial="hidden"
@@ -212,7 +306,6 @@ export default function Home() {
                   </h3>
 
                   <div className="space-y-3 text-xs md:text-sm">
-                    {/* IP block stays, but version is dynamic */}
                     <div className="rounded-2xl bg-[#EDE9FF]/60 border border-white/20 px-4 py-3">
                       <p className="text-[11px] uppercase tracking-[0.18em] text-[#4b5563] mb-1">
                         IP Address
@@ -226,7 +319,6 @@ export default function Home() {
                       </p>
                     </div>
 
-                    {/* Status rows */}
                     <div className="rounded-2xl bg-white/60 border border-black/10 px-4 py-3 flex items-center justify-between">
                       <span className="text-[11px] uppercase tracking-[0.18em] text-[#4b5563]">
                         Status
@@ -275,7 +367,7 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* Discord CTA card – only button is clickable */}
+              {/* Discord CTA */}
               <motion.div
                 variants={fadeIn}
                 initial="hidden"
@@ -291,15 +383,16 @@ export default function Home() {
                       Stay updated!
                     </p>
                     <h3 className="text-2xl md:text-3xl font-extrabold">
-                      Hop into the ChickenJockey Discord
+                      (Semi-important) Join the ChickenJockey Discord!
                     </h3>
                     <p className="mt-2 text-sm md:text-base text-black/80">
-                      Get whitelisted, see the full mod list, join events, and
-                      meet new people!
+                      In order to properly enjoy the server, you should join the
+                      Discord server. Anything from important announcements about server status
+                      to new mods or events will be posted there. Don't miss it!
                     </p>
 
                     <a
-                      href="https://discord.gg/your-invite-code-here"
+                      href="https://invite.chickenjockey.lol"
                       target="_blank"
                       rel="noreferrer"
                       className="mt-4 inline-flex items-center gap-2 rounded-full border-2 border-black bg-[#111827] px-4 py-2 text-sm font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform"
@@ -325,7 +418,7 @@ export default function Home() {
 
         {/* ---------------- ABOUT / ANIMALS SECTION ---------------- */}
         <motion.section
-          className="w-full max-w-[1280px] px-4 mb-20"
+          className="w-full max-w-[1280px] px-4 mb-20 relative z-10"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
@@ -346,7 +439,6 @@ export default function Home() {
                   content instead of being forced into it. The overworld is cozy
                   and colorful, but if you want to go fight terrible things in
                   weird dimensions, we absolutely support that.
-
                 </p>
                 <ul className="list-disc list-inside text-sm md:text-base text-[#111827]/90 space-y-1.5">
                   <li>
@@ -370,7 +462,6 @@ export default function Home() {
               variants={fadeIn}
               className="relative flex justify-center"
             >
-              {/* existing backgroundMc + animals images stay exactly the same */}
               <div className="relative">
                 <Image
                   src={backgroundMc}
@@ -389,8 +480,8 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* ---------------- MODS SECTION (Deepslate Layer) ---------------- */}
-        <div className="w-full max-w-[1280px] px-4 mt-20">
+        {/* ---------------- MODS SECTION ---------------- */}
+        <div className="w-full max-w-[1280px] px-4 mt-20 relative z-10">
           <ModsSection />
         </div>
       </main>
