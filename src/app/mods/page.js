@@ -1,6 +1,6 @@
 // app/mods/page.js
-
 import ModsExplorer from "@/components/ModsExplorer";
+import NavButton from "@/components/NavButton"; // Import the new component
 
 export const metadata = {
   title: "Mod Library – A Minecraft Server",
@@ -10,11 +10,14 @@ export const metadata = {
 export default function ModsPage() {
   return (
     <>
-      {/* Background (same cross-section vibe as home) */}
+      {/* Background */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden cross-section-bg" />
 
+      {/* NAVIGATION BUTTON (Client Component) */}
+      <NavButton />
+
       <main className="relative min-h-screen flex flex-col items-center pb-20">
-        <header className="w-full max-w-4xl px-4 sm:px-6 pt-10 sm:pt-14 mb-4 text-center font-minecraft-bold">
+        <header className="w-full max-w-4xl px-4 sm:px-6 pt-4 sm:pt-14 mb-4 text-center font-minecraft-bold">
           <h1 className="text-3xl sm:text-4xl md:text-5xl drop-shadow-[0_4px_0_rgba(0,0,0,0.8)] text-[#FDF2FF]">
             Mod Library
           </h1>
@@ -25,6 +28,7 @@ export default function ModsPage() {
           </p>
         </header>
 
+        {/* Assuming ModsExplorer is also a "use client" component internally */}
         <ModsExplorer />
       </main>
     </>

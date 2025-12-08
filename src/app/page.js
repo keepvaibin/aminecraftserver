@@ -49,37 +49,37 @@ const SCRAPBOOK_PHOTOS = [
     id: 1, 
     src: imgSpawn, 
     alt: "Spawn Area",
-    className: "top-[10%] left-[-2%] md:left-[-5%] xl:left-[2%] rotate-[-8deg] w-[55vw] xl:w-[28vw]",
+    className: "top-[10%] left-[-2%] md:left-[-5%] xl:left-[2%] rotate-[-8deg] w-[75vw] xl:w-[28vw]",
   },
   { 
     id: 2, 
     src: imgRuined, 
     alt: "Ruined Portal",
-    className: "top-[22%] right-[-2%] md:right-[-5%] xl:right-[2%] rotate-[12deg] w-[55vw] xl:w-[28vw]", 
+    className: "top-[22%] right-[-2%] md:right-[-5%] xl:right-[2%] rotate-[12deg] w-[75vw] xl:w-[28vw]", 
   },
   { 
     id: 3, 
     src: imgTree, 
     alt: "Lava Tree",
-    className: "top-[35%] left-[-1%] md:left-[-4%] xl:left-[5%] rotate-[-5deg] w-[55vw] xl:w-[28vw]", 
+    className: "top-[35%] left-[-1%] md:left-[-4%] xl:left-[5%] rotate-[-5deg] w-[75vw] xl:w-[28vw]", 
   },
   { 
     id: 4, 
     src: imgFlower, 
     alt: "Flower Field",
-    className: "top-[48%] right-[-1%] md:right-[-4%] xl:right-[4%] rotate-[8deg] w-[55vw] xl:w-[28vw]", 
+    className: "top-[48%] right-[-1%] md:right-[-4%] xl:right-[4%] rotate-[8deg] w-[75vw] xl:w-[28vw]", 
   },
   { 
     id: 5, 
     src: imgTower, 
     alt: "Tall Tower",
-    className: "top-[62%] left-[1%] md:left-[-3%] xl:left-[3%] rotate-[-10deg] w-[55vw] xl:w-[28vw]", 
+    className: "top-[62%] left-[1%] md:left-[-3%] xl:left-[3%] rotate-[-10deg] w-[75vw] xl:w-[28vw]", 
   },
   { 
     id: 6, 
     src: imgPortal, 
     alt: "Warden Portal",
-    className: "top-[75%] right-[-2%] md:right-[-5%] xl:right-[2%] rotate-[5deg] w-[55vw] xl:w-[30vw]", 
+    className: "top-[75%] right-[-2%] md:right-[-5%] xl:right-[2%] rotate-[5deg] w-[75vw] xl:w-[30vw]", 
   },
   { 
     id: 7, 
@@ -435,35 +435,33 @@ export default function Home() {
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
-          <div className="grid gap-8 lg:grid-cols-2 items-center">
+          <div className="grid gap-30 lg:grid-cols-2 items-center">
             <motion.div variants={fadeUp} className="relative">
               <div className="space-y-4 bg-white/60 border-4 border-black rounded-[32px] shadow-[0_10px_0_rgba(0,0,0,0.7)] px-6 md:px-8 py-6 md:py-8 backdrop-blur-sm">
                 <p className="text-sm tracking-[0.25em] uppercase text-[#1f2937]/70">
-                  What is ChickenJockey?
+                  Play however you'd like
                 </p>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827] drop-shadow-[0_2px_0_rgba(0,0,0,0.4)]">
-                  Build a silly little life on a silly little server.
+                  Build a silly little life on a silly little server!
                 </h2>
                 <p className="text-sm md:text-base text-[#111827]/80">
-                  Think: a comfy SMP where players can{" "}
-                  <span className="font-semibold">opt into</span> harder
-                  content instead of being forced into it. The overworld is cozy
-                  and colorful, but if you want to go fight terrible things in
-                  weird dimensions, we absolutely support that.
+                  This is meant to be an SMP where you can choose your
+                  challenges instead of being forced into them! The overworld has lots of 
+                  cute guys, but if you want to go fight bosses in
+                  new dimensions, we support that.
                 </p>
                 <ul className="list-disc list-inside text-sm md:text-base text-[#111827]/90 space-y-1.5">
                   <li>
-                    <span className="font-semibold">Casual path:</span>{" "}
-                    decorate, farm, explore cute structures, collect critters.
+                    <span className="font-semibold">Casual play:</span>{" "}
+                    Decorate, farm, and explore cute structures!
                   </li>
                   <li>
-                    <span className="font-semibold">Challenge path:</span>{" "}
-                    optional bosses, Deeper &amp; Darker, and other “why did I
-                    queue for this?” content.
+                    <span className="font-semibold">Challenges:</span>{" "}
+                    BoMD, Deeper &amp; Darker, etc.
                   </li>
                   <li>
-                    <span className="font-semibold">Social path:</span> Simple
-                    Voice Chat, community events, and shared build projects.
+                    <span className="font-semibold">Extras:</span> Proximity
+                    Voice Chat, waystones, and more!
                   </li>
                 </ul>
               </div>
