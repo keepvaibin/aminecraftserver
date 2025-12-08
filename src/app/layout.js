@@ -38,7 +38,7 @@ const minecraftFontBold = localFont({
 
 
 export const metadata = {
-  title: "A Minectraft Server",
+  title: "A Minecraft Server",
   description: "by Vaibhav Shukla",
 };
 

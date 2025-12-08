@@ -33,7 +33,8 @@ export default function ModModal({ mod, onClose }) {
           <motion.div
             variants={modalVariants}
             transition={{ type: "spring", stiffness: 210, damping: 22 }}
-            className="relative w-[90vw] md:w-full max-w-3xl max-h-[85vh] md:max-h-[90vh] overflow-y-auto overscroll-contain rounded-[32px] border-4 border-black bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#1C1D60] shadow-[0_18px_0_rgba(0,0,0,0.9)] p-5 md:p-8 text-[#FDF2FF]"
+            // FIX: Changed mobile padding to p-3 (was p-5)
+            className="relative w-[90vw] md:w-full max-w-3xl max-h-[85vh] md:max-h-[90vh] overflow-y-auto overscroll-contain rounded-[32px] border-4 border-black bg-gradient-to-br from-[#0f172a] via-[#020617] to-[#1C1D60] shadow-[0_18px_0_rgba(0,0,0,0.9)] p-3 md:p-8 text-[#FDF2FF]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* corner accent */}
@@ -53,8 +54,7 @@ export default function ModModal({ mod, onClose }) {
               <div className="flex-1 space-y-3">
                 <div className="flex flex-col gap-1 pr-8">
                   <div className="flex items-center gap-2">
-                    {/* UPDATED: Added mt-1 and ml-1 here */}
-                    <h3 className="text-xl md:text-3xl font-extrabold drop-shadow-[0_3px_0_rgba(0,0,0,0.6)] break-words mt-3 ml-0">
+                    <h3 className="text-xl md:text-3xl font-extrabold drop-shadow-[0_3px_0_rgba(0,0,0,0.6)] break-words mt-1 ml-1">
                       {mod.name}
                     </h3>
                   </div>
@@ -148,7 +148,7 @@ export default function ModModal({ mod, onClose }) {
                   </span>
                 )}
 
-                <div className="relative h-54 md:h-64 w-full rounded-3xl border-2 border-black bg-[#020617] overflow-hidden shadow-[0_8px_0_rgba(0,0,0,0.9)] flex items-center justify-center">
+                <div className="relative aspect-square w-full rounded-3xl border-2 border-black bg-[#020617] overflow-hidden shadow-[0_8px_0_rgba(0,0,0,0.9)] flex items-center justify-center">
                   {hasMedia ? (
                     <MediaSlideshow media={mod.media} />
                   ) : (
