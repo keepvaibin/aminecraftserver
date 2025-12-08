@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-
 const nextConfig = {
   output: "export",
-  images: { unoptimized: true },
-  // Make sure this matches your repo name exactly!
-  basePath: isProd ? "/aminecraftserver" : "",
-  assetPrefix: isProd ? "/aminecraftserver/" : "",
+  images: {
+    unoptimized: true,
+  },
+  // We removed basePath and assetPrefix because on a custom subdomain,
+  // your app is served from the root "/"
 };
 
 export default nextConfig;
