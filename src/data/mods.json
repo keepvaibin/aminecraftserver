@@ -149,7 +149,7 @@
     "id": "balm",
     "name": "Balm",
     "category": "dependencies",
-    "tag": "Shared library",
+    "tag": "Library",
     "description": "Shared code library used by several QoL mods.",
     "features": [
       "Provides a common API for many mods",
@@ -179,7 +179,7 @@
     "id": "fabric-api",
     "name": "Fabric API",
     "category": "dependencies",
-    "tag": "Core",
+    "tag": "Library",
     "description": "Core API library for the Fabric modding toolchain used by most Fabric mods.",
     "features": [
       "Provides common hooks and interoperability for Fabric mods",
@@ -243,7 +243,7 @@
     "id": "geckolib",
     "name": "GeckoLib",
     "category": "dependencies",
-    "tag": "Animation",
+    "tag": "Library",
     "description": "3D animation library for entities, blocks, armor, and more.",
     "features": [
       "Keyframe animation system for modded models",
@@ -307,7 +307,7 @@
     "id": "owo-lib",
     "name": "oωo (owo-lib)",
     "category": "dependencies",
-    "tag": "UI & config",
+    "tag": "Config",
     "description": "General utility, GUI, and config library for Fabric and Quilt mods.",
     "features": [
       "Declarative UI system for mod menus",
@@ -323,7 +323,7 @@
     "id": "pneumonocore",
     "name": "PneumonoCore",
     "category": "dependencies",
-    "tag": "Core",
+    "tag": "Library",
     "description": "Core library mod that Pneumono_’s mods depend on, including Gravestones.",
     "features": [
       "Shared utilities used across multiple Pneumono_ mods",
@@ -355,7 +355,7 @@
     "id": "yungs-api",
     "name": "YUNG’s API",
     "category": "dependencies",
-    "tag": "YUNG’s library",
+    "tag": "Library",
     "description": "Library mod providing shared utilities and worldgen helpers for YUNG’s structure overhauls.",
     "features": [
       "Required by YUNG’s Better Strongholds/Fortresses and other YUNG mods",
@@ -448,7 +448,7 @@
     "id": "waystones",
     "name": "Waystones",
     "category": "casual",
-    "tag": "Teleport",
+    "tag": "Stones",
     "description": "Adds teleportation stones you can find or craft.",
     "features": [
       "Teleport between activated waystones",
@@ -468,7 +468,7 @@
     "id": "decorative-blocks-reborn",
     "name": "Decorative Blocks Reborn",
     "category": "casual",
-    "tag": "Building",
+    "tag": "Structures",
     "description": "Adds beams, seats, pillars, supports, and other aesthetic blocks.",
     "features": [
       "New decorative beams, seats, pillars, and supports",
@@ -598,7 +598,7 @@
     "id": "ecologics",
     "name": "Ecologics",
     "category": "casual",
-    "tag": "Biomes+",
+    "tag": "Biomes",
     "description": "Overhauls and expands various vanilla biomes with new mobs, blocks, foods, and structures while staying close to vanilla style.",
     "features": [
       "Adds biome-specific mobs like crabs and camels",
@@ -630,8 +630,8 @@
   {
     "id": "bomd",
     "name": "Bosses of Mass Destruction",
-    "category": "challenge",
-    "tag": "Boss fights",
+    "category": "misc",
+    "tag": "Bosses",
     "description": "Adds challenging, unique boss battles to the game.",
     "features": [
       "Bosses like the Nether Gauntlet, Void Blossom, Frostmaw, and The Harbinger",
@@ -651,7 +651,7 @@
   {
     "id": "deeper-darker",
     "name": "Deeper and Darker",
-    "category": "challenge",
+    "category": "dimension",
     "tag": "Dimension",
     "description": "Adds The Otherside, a sculk-themed dimension tied to the Warden.",
     "features": [
@@ -671,8 +671,8 @@
   {
     "id": "eternal-starlight",
     "name": "Eternal Starlight",
-    "category": "challenge",
-    "tag": "RPG Dimension",
+    "category": "dimension",
+    "tag": "Dimension",
     "description": "Large RPG-style dimension mod focused on exploration, bosses, and rare materials in a magical starlight realm.",
     "features": [
       "New dimension with unique biomes and structures",
@@ -687,8 +687,8 @@
   {
     "id": "oblivion",
     "name": "Oblivion",
-    "category": "challenge",
-    "tag": "Hard Dimension",
+    "category": "dimension",
+    "tag": "Dimension",
     "description": "Adds a forgotten, extremely dangerous dimension intended for late-game players only.",
     "features": [
       "New hostile dimension with brutal terrain and mobs",
@@ -703,8 +703,8 @@
   {
     "id": "paradise-lost",
     "name": "Paradise Lost",
-    "category": "challenge",
-    "tag": "Skylands",
+    "category": "dimension",
+    "tag": "Dimension",
     "description": "A Skylands/Aether-inspired dimension with floating islands, new biomes, and unique structures.",
     "features": [
       "New sky dimension with floating islands",
@@ -719,8 +719,8 @@
   {
     "id": "bumblezone",
     "name": "The Bumblezone",
-    "category": "challenge",
-    "tag": "Bee Dimension",
+    "category": "dimension",
+    "tag": "Dimension",
     "description": "Bee-themed dimension that looks like the inside of a giant hive, full of honeycomb terrain, structures, and angry bees.",
     "features": [
       "Honeycomb maze-like terrain with canals and walls",
@@ -735,7 +735,7 @@
   {
     "id": "illager-invasion",
     "name": "Illager Invasion",
-    "category": "challenge",
+    "category": "misc",
     "tag": "Raids",
     "description": "Expands Illagers with many new enemy types, structures, and tougher raids.",
     "features": [
@@ -853,7 +853,7 @@
     "id": "structory",
     "name": "Structory",
     "category": "terrain",
-    "tag": "World spice",
+    "tag": "Structures",
     "description": "Adds lots of small and medium structures across the overworld.",
     "features": [
       "Dozens of new structures scattered around the world",
@@ -892,7 +892,7 @@
     "id": "stellarity",
     "name": "Stellarity",
     "category": "terrain",
-    "tag": "End overhaul",
+    "tag": "End",
     "description": "Extremely large End overhaul datamod with new terrain, biomes, items, and mechanics.",
     "features": [
       "Reworks the End with unique fantasy-style biomes",
@@ -932,7 +932,7 @@
     "id": "gravestones",
     "name": "Gravestones",
     "category": "misc",
-    "tag": "Safety",
+    "tag": "Stones",
     "description": "Stores your items safely in a grave when you die.",
     "features": [
       "Keeps your inventory in a grave at your death location",

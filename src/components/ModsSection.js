@@ -30,7 +30,7 @@ const CATEGORIES = [
     id: "optimizers",
     label: "Optimizers",
     emoji: "🛠️",
-    blurb: "FPS boosters and lag killers so the chaos runs smooth."
+    blurb: "FPS boosters and lag killers so the game runs smoothly."
   },
   {
     id: "dependencies",
@@ -42,13 +42,13 @@ const CATEGORIES = [
     id: "casual",
     label: "Enhancements – Casual",
     emoji: "🎒",
-    blurb: "Travel, decorate, and vibe without making the game sweaty."
+    blurb: "Travel and decorate without overthinking it."
   },
   {
-    id: "challenge",
-    label: "Enhancements – Challenge",
-    emoji: "⚔️",
-    blurb: "Optional bosses and dimensions for tryhards and thrill seekers."
+    id: "dimension",
+    label: "Dimensions",
+    emoji: "🌠",
+    blurb: "New worlds to explore."
   },
   {
     id: "terrain",
@@ -58,10 +58,10 @@ const CATEGORIES = [
   },
   {
     id: "misc",
-    label: "QoL & Misc",
+    label: "QoL & Extra Content",
     emoji: "🎤",
-    blurb: "Voice chat, gravestones, recipe viewers, and other sanity savers."
-  }
+    blurb: "Voice chat, gravestones, and recipe viewers."
+  },
 ];
 
 export default function ModsSection() {

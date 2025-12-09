@@ -23,8 +23,7 @@ export default function ModsPage() {
           </h1>
           <p className="mt-3 text-sm sm:text-base text-[#E0E7FF]/85 font-minecraft">
             This is the &quot;big&quot; view of the pack. Use the search and
-            filters below to drill into performance mods, cozy building tools,
-            brutal end-game dimensions, or anything else that catches your eye.
+            filters below to explore anything else that catches your eye.
           </p>
         </header>
 
