@@ -401,12 +401,15 @@ export default function Home() {
                       Stay updated!
                     </p>
                     <h3 className="text-2xl md:text-3xl font-extrabold">
-                      (IMPORTANT) Join the ChickenJockey Discord!
+                      (IMPORTANT)
+                    </h3>
+                    <h3 className="text-2xl md:text-3xl font-extrabold">
+                      Join the ChickenJockey Discord!
                     </h3>
                     <p className="mt-2 text-sm md:text-base text-black/80">
-                      In order to properly enjoy the server, you should join the
-                      Discord server. Anything from important announcements about server status
-                      to new mods or events will be posted there. Don't miss it!
+                      It's where you'll find the full modpack download instructions,
+                      server status updates, announcements, and community events.
+                      Don't miss it!
                     </p>
 
                     <a
