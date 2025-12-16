@@ -90,10 +90,12 @@ const SCRAPBOOK_PHOTOS = [
 ];
 
 const SERVER_STATUS_URL = "https://api.mcsrvstat.us/2/chickenjockey.lol";
+const MAP_URL = "https://map.chickenjockey.lol";
 
 export default function Home() {
   const [bgOffset, setBgOffset] = useState(0); 
   const [serverStatus, setServerStatus] = useState(null);
+  const [isMapReachable, setIsMapReachable] = useState(null);
 
   // --- PARALLAX LOGIC (UPDATED) ---
   useEffect(() => {
@@ -125,6 +127,25 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
+  }, []);
+
+  // Map status check
+  useEffect(() => {
+    const checkMapStatus = async () => {
+      try {
+        // mode: 'no-cors' allows us to check if the server is reachable 
+        // without getting blocked by browser security (CORS) or needing a valid JSON response
+        await fetch(MAP_URL, { mode: "no-cors" });
+        setIsMapReachable(true);
+      } catch (err) {
+        setIsMapReachable(false);
+      }
+    };
+
+    checkMapStatus();
+    // Check every 60 seconds
+    const interval = setInterval(checkMapStatus, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   // Server status polling
@@ -285,8 +306,15 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-end gap-1 text-[11px] text-[#bbf7d0]">
                   <span className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#4df2a1] shadow-[0_0_8px_#4df2a1]" />
-                    Online
+                    <span 
+                      className={`w-2.5 h-2.5 rounded-full shadow-[0_0_8px_rgba(0,0,0,0.5)] transition-colors duration-300 ${
+                        isMapReachable === true ? "bg-[#4df2a1] shadow-[#4df2a1]" : 
+                        isMapReachable === false ? "bg-red-500 shadow-red-500" : "bg-gray-400"
+                      }`} 
+                    />
+                    <span className={isMapReachable === false ? "text-red-200" : ""}>
+                      {isMapReachable === true ? "Online" : isMapReachable === false ? "Offline" : "Checking..."}
+                    </span>
                   </span>
                   <span className="px-2 py-0.5 rounded-full bg-black/40 text-[#E0F2FE] border border-white/20">
                     map.chickenjockey.lol
@@ -294,14 +322,21 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-b from-[#0f172a] to-[#020617] border-t border-white/10 flex-1 min-h-[300px]">
-                <iframe
-                  src="https://map.chickenjockey.lol/?worldname=world&mapname=flat&zoom=0&x=16&y=64&z=0"
-                  title="ChickenJockey Dynmap"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full"
-                />
+              <div className="bg-gradient-to-b from-[#0f172a] to-[#020617] border-t border-white/10 flex-1 min-h-[300px] relative">
+                {isMapReachable ? (
+                  <iframe
+                    src="https://map.chickenjockey.lol/?worldname=world&mapname=flat&zoom=0&x=16&y=64&z=0"
+                    title="ChickenJockey Dynmap"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white/40 gap-3 pointer-events-none">
+                     <span className="text-4xl opacity-50">🗺️</span>
+                     <p className="text-sm font-medium tracking-wide uppercase">Map Offline</p>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -416,7 +451,6 @@ export default function Home() {
                       href="http://invite.chickenjockey.lol"
                       target="_blank"
                       rel="noreferrer"
-                      // CHANGED: Removed 'max-w-sm', 'md:w-auto', 'md:mx-0'. Added 'w-full'.
                       className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-black bg-[#111827] px-6 py-3 text-base md:px-8 md:py-3 md:text-lg font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform"
                     >
                       <span>Join Discord</span>
