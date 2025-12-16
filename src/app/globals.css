@@ -151,7 +151,7 @@ body {
 
 /* Cross-section background (parallax image) */
 .cross-section-bg {
-  background-image: url("/textures/crosssection.png");
+  background-image: url("/textures/crosssection.jpg");
   background-repeat: no-repeat;
   background-position: top left;  /* mostly crop on the right */
   background-size: cover;         /* <-- fill screen, no empty edges */
