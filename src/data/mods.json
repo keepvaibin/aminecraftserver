@@ -964,5 +964,37 @@
     "link": "https://modrinth.com/mod/jei",
     "media": ["/mods/justenoughitems-1.jpg", "/mods/justenoughitems-2.png"],
     "fileName": "jei-1.21.1-fabric-19.25.1.332.jar"
+  },
+  {
+    "id": "heart-crystals",
+    "name": "Heart Crystals",
+    "category": "casual",
+    "tag": "Health",
+    "description": "Adds rare crystals found underground that increase your maximum health when consumed.",
+    "features": [
+      "Mine crystals to permanently gain hearts",
+      "Adds a sense of progression to mining",
+      "Configurable health caps and spawn rates"
+    ],
+    "howTo": "Find Heart Crystals deep underground, mine them, and eat them to gain health.",
+    "link": "https://modrinth.com/mod/heart-crystals",
+    "media": ["/mods/heartcrystals-1.png", "/mods/heartcrystals-2.png"],
+    "fileName": "heart_crystals-fabric-1.0.1-1.21.jar"
+  },
+  {
+    "id": "trinkets",
+    "name": "Trinkets",
+    "category": "dependencies",
+    "tag": "Inventory",
+    "description": "A data-driven accessory system that adds slots for rings, amulets, and other wearables.",
+    "features": [
+      "Adds dedicated slots for accessories",
+      "Required dependency for many artifact mods",
+      "Accessible via a button in the inventory screen"
+    ],
+    "howTo": "Open your inventory and click the Trinkets slot icon (usually near your character model) to equip accessories.",
+    "link": "https://modrinth.com/mod/trinkets",
+    "media": ["/mods/trinkets-1.png"],
+    "fileName": "trinkets-3.10.0.jar"
   }
 ]
