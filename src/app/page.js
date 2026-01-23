@@ -89,8 +89,8 @@ const SCRAPBOOK_PHOTOS = [
   },
 ];
 
-const SERVER_STATUS_URL = "https://api.mcsrvstat.us/2/chickenjockey.lol";
-const MAP_URL = "https://map.chickenjockey.lol";
+const SERVER_STATUS_URL = "https://api.mcsrvstat.us/2/ucscmc.com";
+const MAP_URL = "https://map.ucscmc.com";
 
 export default function Home() {
   const [bgOffset, setBgOffset] = useState(0); 
@@ -317,7 +317,7 @@ export default function Home() {
                     </span>
                   </span>
                   <span className="px-2 py-0.5 rounded-full bg-black/40 text-[#E0F2FE] border border-white/20">
-                    map.chickenjockey.lol
+                    map.ucscmc.com
                   </span>
                 </div>
               </div>
@@ -325,7 +325,7 @@ export default function Home() {
               <div className="bg-gradient-to-b from-[#0f172a] to-[#020617] border-t border-white/10 flex-1 min-h-[300px] relative">
                 {isMapReachable ? (
                   <iframe
-                    src="https://map.chickenjockey.lol/?worldname=world&mapname=flat&zoom=0&x=16&y=64&z=0"
+                    src="https://map.ucscmc.com/?worldname=world&mapname=flat&zoom=0&x=16&y=64&z=0"
                     title="ChickenJockey Dynmap"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -363,7 +363,7 @@ export default function Home() {
                         IP Address
                       </p>
                       <p className="font-mono text-sm md:text-base bg-[#EDE9FF]/60 inline-block px-2 py-1 rounded-lg border border-black break-all">
-                        chickenjockey.lol
+                        ucscmc.com
                       </p>
                       <p className="mt-1 text-[11px] text-[#4b5563]/70">
                         Java Edition · Fabric
@@ -448,7 +448,7 @@ export default function Home() {
                     </p>
 
                     <a
-                      href="http://invite.chickenjockey.lol"
+                      href="http://invite.ucscmc.com"
                       target="_blank"
                       rel="noreferrer"
                       className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-black bg-[#111827] px-6 py-3 text-base md:px-8 md:py-3 md:text-lg font-semibold text-[#FDF2FF] shadow-[0_4px_0_rgba(0,0,0,0.8)] hover:translate-y-[-2px] transition-transform"

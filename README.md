@@ -1,6 +1,6 @@
 <div align="center">
 
-# [chickenjockey.lol](https://chickenjockey.lol)
+# [ucscmc.com](https://ucscmc.com)
 
 <img width="316" height="120" alt="ucsc" src="https://github.com/user-attachments/assets/ac8bc437-1afb-41a3-9e98-39ec48545d35" />
 <img width="1203" height="120" alt="aminecraftserver" src="https://github.com/user-attachments/assets/3b723cc5-be54-466e-97b7-f6a937abfd79" />
@@ -31,7 +31,7 @@ We run on **Java 1.21.1** using the **Fabric** modloader.
 
 | **Server IP** | **Live Map** | **Discord & Modpack** |
 | :---: | :---: | :---: |
-| `chickenjockey.lol` | [View Map](https://map.chickenjockey.lol) | [Join Discord](https://invite.chickenjockey.lol) |
+| `ucscmc.com` | [View Map](https://map.ucscmc.com) | [Join Discord](https://invite.ucscmc.com) |
 
 <img width="3840" height="2054" alt="ruined-min" src="https://github.com/user-attachments/assets/ab81d4e3-30b0-4326-93f4-362f9ae8aa73" />
 

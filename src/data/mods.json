@@ -984,7 +984,7 @@
   {
     "id": "trinkets",
     "name": "Trinkets",
-    "category": "dependencies",
+    "category": "casual",
     "tag": "Inventory",
     "description": "A data-driven accessory system that adds slots for rings, amulets, and other wearables.",
     "features": [
